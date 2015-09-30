@@ -1,5 +1,16 @@
 	\documentclass{article}
 	\usepackage{amsmath}
+	% -------- Umlaute korrekt ----------------
+	\usepackage[utf8]{inputenc}
+	\usepackage[ngerman, english]{babel}
+	%-------------------------------------------
+
+	% TikZ Library
+	\usepackage{tikz}
+	\usetikzlibrary{arrows,backgrounds,positioning,fit,calc,petri}
+	\usetikzlibrary{shapes, shapes.misc}
+	\usetikzlibrary{decorations.markings,decorations.pathmorphing}
+	% -----------------------------------------
 	\DeclareMathSizes{10}{10}{10}{10}
 	\title{Mathe C4 Merz - Cheatsheet}
 	\author{Yannik Schmidt (Sheppy)\\September 2015}
@@ -234,9 +245,9 @@
 	% \\ \\ \textbf{Moeglichkeit b) - Nach $x_1$ oder $x_2$ umstellen} \\ (ggf. mit Koordinatentransformation)
 	\subsubsection{Alternatives Beispiel:}
 	X,Y stochastisch unabhaengige, mit Parameter 'p' geometrisch verteilte Zufallsvarriablen 	in Wahrscheinlichkeitsraum $(\varOmega , \mathcal{A},P)$. Welche Verteilung besitzt 
-Zufallsvarriable $Z = min(X,Y)$, definiert durch $Z( \omega ) = min \{X(\omega),Y(\omega)\}$.\\ \[
-	
-\]
+Zufallsvarriable $Z = min(X,Y)$, definiert durch $Z( \omega ) = min \{X(\omega),Y(\omega)\}$.\\
+
+
 \section{Marginaldichte - Beispielrechnung}
 \[	
 f(x_z,x_2)=
@@ -264,23 +275,42 @@ und:
 	\int \int f(x_1,x_2) dx_1 dx_2 = 1
 \]
 \section{Koordinatentransformation}
-\end{document}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+\section{Komposition von Zufallsvektoren}
+\begin{center}
+\begin{tikzpicture}[
+	  bend angle=45,
+	  scale = 1.5,
+	  pre/.style={<-,shorten <=1pt,>=stealth',semithick},
+	  post/.style={->,shorten >=1pt,>=stealth',semithick},
+	  mid/.style={-,shorten >=1pt,>=stealth',semithick},
+	  place/.style={circle,draw=red!50,fill=red!20,thick}]
 
+	  \node[place]  (A) at ( 0,0)[label=above:Before] {$(\Omega, A, P) $};
+	  \node[place]  (B) at ( 2,0) {$(R^n, B_n, P^X)$}
+		edge [pre] node [auto] {X} (A);
+		\node[place, align=center]  (C) at ( 2,-3) {$(R^m, B_m, P^G$}
+		edge [pre] node [auto] {$Y = G \circ X$} (A)
+		edge [pre] node [auto] {$G$} (B);
+\end{tikzpicture}
+\end{center}
+\vspace*{7pt}
+Problem: Verteilung von $P^G$ gesucht bei gegebenen $P^X$:
+\begin{enumerate}
+	\item Funktionaldeterminante ($J_{G(x)}$) von $G$ berechnen
+	\item Umkehrabbildung $G^*$ berechnen. Alle Zufallsvariablen werden
+		werden mittels Funktionen verändert: z.B: $y_1 = x_1/x_2$.
+		Jede i-te Funktion nach $x_i$ auflösen.
+	\item Gesuchte Funktion: $g(y) = f(G^*(y))\frac{1}{|J_G(G^*(y))|}$\\
+		$\longrightarrow$ Setze für alle $x_i$ dementsprechend $y_i$ ein und multipliziere
+		mit Kehrwehrt von Funktionaldeterminante.
+\end{enumerate}
+
+\begin{align}
+	J_{G(x)} =
+	 \begin{pmatrix}
+		 \frac{\partial G_1}{\partial x_1} (x) & \cdots & \frac{\partial G_1}{\partial x_n} (x) \\
+		   \vdots  & \ddots & \vdots  \\
+		 \frac{\partial G_n}{\partial x_1} (x) & \cdots & \frac{\partial G_n}{\partial x_n} (x) \\
+		  \end{pmatrix}
+\end{align}
+\end{document}
