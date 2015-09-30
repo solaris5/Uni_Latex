@@ -1,0 +1,286 @@
+	\documentclass{article}
+	\usepackage{amsmath}
+	\DeclareMathSizes{10}{10}{10}{10}
+	\title{Mathe C4 Merz - Cheatsheet}
+	\author{Yannik Schmidt (Sheppy)\\September 2015}
+	\date{Diesen Zusammenfassung kann Fehler enthalten!}
+	\begin{document}
+	\maketitle
+	\section{Statistik}
+	\subsection{empirisches arithmetisches Mittel}
+	\[x_{arith}=\frac{1}{n}\sum_{i=1}^n x_i\]
+	\subsection{empirischer Median (Zentralwert)}
+	\[
+	x_{median}=
+		\begin{cases}
+			\frac{x_{n+1}}{2}								& \text{n ungerade} \\
+			\frac{x_{n/2} \;\; + x_{(n+1)/2}}{2}	& \text{n gerade}
+		\end{cases}
+	\]
+	Wobei der Index fuer die n'te Zahl in einer Angabe in Stile von \{A,B,C,...\} steht.
+	\subsection{empirische Varianz}
+	\[x_{var}=\frac{1}{n-1}\sum_{i=1}^n (x_i-x_{median})\]
+	\subsection{Gleichgewichtsverteilung}
+	\[
+	G_{var} = 
+		\begin{pmatrix}
+		1 \\
+		. \\
+		. \\
+		1
+		\end{pmatrix}
+		*\left [
+		\begin{pmatrix}
+		1&.&.& 0 \\
+		. & 1 &.& . \\
+		. & . &1& . \\
+		0&.&.&1
+			
+		\end{pmatrix}-P+
+		\begin{pmatrix}
+		1&.&.&1 \\
+		.&.&.&. \\
+		.&.&.&. \\
+		1&.&.&1
+		\end{pmatrix}\right ]
+		^{-1}
+	\]
+	Wobei P die Uebergangsmatrix ist. Die Alternative ist die Matrix solang zu potentieren bis sie konvergiert.
+	\section{Mengen}
+	\subsection{o-Algebra}
+	- leere Menge enthalten\\
+	- alle Kombinationen der Elemente enthalten, die nicht bereits gemeinsamme Elemente haben also z.B. \textbf{NICHT} \{x,y\} und \{y,z\} zu \{x,y,z\} machen\\
+	- alle Komplemente enthalten\\ \\
+	\textbf{Beispiel:}\\
+		Grundmenge = $\{1,2,3,4\}$\\
+		NICHT o-Algebra Menge = $\{\{1,2\},\{3\}\}$\\
+		o-Algebra Menge = $\{\emptyset ,\{1,2\},\{3\},
+		\underbrace{\{1,2,3\}}_{\substack{\{1,2\}\{3\}}},
+		\underbrace{\{3,4\}}_{\substack{\neg \{1,2\}}},
+		\underbrace{\{4\}}_{\substack{\neg \{1,2,3\}}},
+		\{1,2,3,4\},\{1,2,4\}\}$
+	
+	\section{Wahrscheinlichkeiten}
+	\subsection{Wuerfeln}
+	\subsubsection{keine 6}
+		\[
+			p_0 = \left( \frac{5}{6} \right)^n , n = \text{Anzahl der Wuerfe}
+		\]
+	\subsubsection{mindestens 'x' 6er (Gegenereignis)}
+		\[	
+			p_1 = 1 - \left( \frac{5}{6} \right)^n = 1 - p_0
+		\]	
+		\[		
+			p_2 = 1-\left(1 - \left( \frac{5}{6} \right)^n\right)-\left( \frac{5}{6} \right)^n = 1-p_1 -p_0
+		\]
+		\[
+			p_x = 1 - \sum_{i=0}^{x-1} p_i
+		\]
+	\subsubsection{6er-Pasch bei 2 Wuerfeln}
+		$Ereignisraum = 6^2 , \text{Anzahl guenstiger Ereignisse = 1 , naehmlich (6,6)}$\\
+		dann wieder ueber Gegenereignis: \\
+		\[ p=1-\left(\frac{35}{36}\right)^n \]
+	\subsubsection{genau eine 6 bei n-Wuerfeln/Wuerfen}
+		\[ p= \frac{n*5^{(n-1)}}{6^n}\]\\
+		- $6^n $ ist wie immer die Anzahl der Gesamtmoeglichkeiten \\
+		- es gibt n-Moglichkeiten an der die 6 sein kann \\
+		- es bleiben bei den verbleibenden n-1 Wuerfen 5 Moeglichkeiten
+	\subsubsection{genau x-6er bei n-Wuerfeln/Wuerfen}
+		\[ p= \frac{\begin{pmatrix}
+		x\\n
+		\end{pmatrix}5^{(n-x)}}{6^n}\]\\
+		\[\begin{pmatrix}
+		x\\n
+		\end{pmatrix}= \frac{n!}{k!(n-k)!}
+		\]\\
+		$\textbf{oder noch allgemeiner, mit Anzahl Moeglichkeiten 'z' (z.B. 6 bei Wuerfel):}$\[
+		p= \frac{\begin{pmatrix}
+		x\\n
+		\end{pmatrix}(z-1)^{(n-x)}}{z^n}
+		\]
+	\subsubsection{Seiten mit verschiedenen Wahrscheinlichkeiten}
+		z.B. 6 Seiten mit normaler Wahrscheinlichkeit $(w_1)$, 8 Seiten mit 1/4 Wahrscheinlichkeit
+		$(w_2)$, wir exploiten die Tatsache, dass: \\ \[ \sum
+		(Teil-)Wahrscheinlichkeiten = 1 \]\\
+		also:\\
+		\begin{equation}	
+			6w_1 + 8w_2 = 1 \end{equation}
+		\begin{equation}	
+			\frac{1}{4}w_1 = w_2 
+		\end{equation}\\
+		Zwei Gleichungen, zwei Unbekannte, easy mode.
+	
+	\section{Bedingte Wahrscheinlichkeiten}
+	\subsection{Beispiele}
+	\subsubsection{Krankheitstest}
+	0,2\% Krank, 95\% der Kranken werden erkannt, 98\% der Gesunden werden richtig erkannt\\ \\
+	\textbf{Wie viele als Krank erkannte wirklich krank?}\\
+	\[
+		P(K | K_{ident} ) = \frac{P(K_{ident}|K)*P(K)}
+								{P(K_{ident}|K)*P(K)+P(K_{ident}|K)*P(\neg K)} =
+									\frac{0,95*0,002}{0,95*0,002+0,002*0,998} = 8,7\%
+	\]
+	\subsubsection{min. eine 6 unter Bedingung verschiedene Augenzahlen}
+	\[
+		P(min. eine 6|verschiedene Augenzahlen) = \frac{\text{Moeglichkeiten verschiedene Augenzahlen UND min. eine 6}}{\text{Moeglichkeiten verschiedene Augenzahlen}}
+	\]\\
+	\[
+		p=\frac{n*(6-1)!-(6-n)!}{6!-n!} 
+	\]
+	bei 3 Wuerfeln also z.B.:\[
+		p=\frac{3*5!-3!}{6!-3!} = \frac{3*5*4}{6*5*4} = 0,5
+	\]
+	
+	\section{Wahrscheinlichkeitsfunktionen}
+	\subsection{Eigenschaften von Wahrscheinlichkeitsfunktionen}
+	\[ \sum_{w \in \Omega} f(w) = 1 \text{ (die Summe aller Wahrscheinlichkeiten ist 1)}\]
+	und logischerweise:
+	\[ \forall w\in\Omega . f(w)>=0 \text{ (keine negativen Wahrscheinlichkeiten)} \]
+	\subsection{Momenterzeugende Funktion}
+	\[
+		M(t)=\sum_{n\in\Omega}^{\infty}(e^t)^n * f(n)
+	\]
+	- f(n) ist die gegebene Wahrscheinlichkeitsfunktion\\
+	- 'n' koennte z.B. definiert sein als $n=\{1,2,3,...\}$
+	\subsection{Erzeugende Funktion}
+	\subsubsection{Wahrscheinlichkeitsfunktion berechnen}
+	\subsubsection{Mitterlwert}
+	\subsubsection{Varianz}
+	TODO
+	\subsection{Mittelwert, Varrianz}
+	\begin{itemize}
+		\item Mittelwert: $m_1 = \sum_{n=0}^\infty n*f(n)$
+		\item Varianz: $\widehat{m}_2 = m_2 - m_1^2$
+	\end{itemize}
+	\section{Verteilungen}
+	\subsection{Allgemein}
+	\subsubsection{Eigenschaften}
+	\begin{itemize}		
+		\item stetig
+		\item monoton steigend
+		\item $\lim_{t \to \infty} G(t) = 1, \quad \lim_{t \to -\infty} G(t) = 0$
+		\item Dichte $g(t) = G'(t)$
+		\item $m_1 = \int_{-\infty}^{\infty}t*g(t)dt$
+	\end{itemize}
+	\subsection{Binominalverteilung}
+	\subsubsection{Allgemein}
+	\[
+		\mathcal{B}(k | p,n) \enspace \textbf{ oder auch } \enspace B(k;p,n) = 
+		\begin{pmatrix} n \\ k \end{pmatrix} p^k(1-p)^{n-k} \enspace \newline
+		\text{mit k = 0,1,2,...,n} \]
+		- wobei diese Funktion die \textbf{kommulierte} Wahrscheinlichkeit angibt, also z.B.
+		wobei k = 2 die Wahrscheinlichkeit "1 oder 2"
+		\\ - p ist die Wahrscheinlichkeit fuer ein positives Ereigbnis
+		\\ - n ist Anzaehl wie oft wir ziehen
+	
+	\subsubsection{Beispiel: 500 Druckfehler auf 500 Seiten}
+		Wie hoch ist die Wahrscheinlichkeit, dass auf einer Seite mindestens 3 Druckfehler
+		sind?
+		\[
+			1- \sum_{k=0}^{2} \mathcal{B}(k|p,n) \enspace mit \enspace \] \\
+			k=0,1,2 (Gegenereignisse)\\ n = 500 
+			(wir ziehen Fehler "ohne zuruecklegen") \\ p=1/500 (die Wahrscheinlichkeit dass 
+			ein Fehler auf einer bestimmten Seite ist)\\
+		\begin{equation*}
+		\begin{split}
+			1- \sum_{k=0}^{2} \mathcal{B}(k|1/500,500)& = 1 - \mathcal{B}(0|1/500,500) - \mathcal{B}(1|1/500,500) - \mathcal{B}(2|
+			1/500,500) \\
+			& = 1 -  \mathcal{B}(0|1/500,500) - \mathcal{B}(1|1/500,500) - \mathcal{B}(2|
+			1/500,500) \\
+			& = 1 - \left( \frac{499}{500} \right) ^{500} - 500\frac{1}{500}\left(\frac{499}{500}\right)^{499} - \frac{500*499}{1*2}\left( \frac{1}{500} \right) ^2 \left( \frac{499}{500} \right) ^{498} \\ & = 0,08
+		\end{split}
+		\end{equation*}
+	\subsection{Possion-Verteilung}
+	\subsubsection{Allgemein}
+	Ereignisse muessen mit konstanter Rate, unabhaengig voneinander und in einem festen 
+	Bereich (Modell) stattfinden!
+	\[
+		P_{\lambda}(n) = \frac{\lambda ^n}{n!} e ^{- \lambda}
+	\]
+\subsection{N(0,1)-Verteilung}
+	$f(x) = \frac{1}{\sqrt{2\pi}}*e^{-0.5x^2}$
+\subsection{Normal-Verteilung}
+	$f(x) = N(\mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}*e^{-\frac{1}{2\sigma^2}(x-		
+	\mu)^2} \quad \quad m_1 = \mu \quad \quad \widehat{m}_2=\sigma^2$
+\subsection{Exponentiallverteilung}
+	$f(\lambda) = \lambda*e^{-\lambda t}$
+
+\subsection{Laplace-Verteilung}
+	Zufallsexperimente, bei denen jedes Ergebnis die gleiche Chance hat. \\
+	$f(w) = L(\Omega) = \frac{1}{|\Omega|}$
+\subsection{Hypergeometrische Verteilung}
+	Zufallsexperimente, bei denen man die Ergebnisse als Anzahlen von schwarzen Kugeln unter 	n gezogenen interpretieren kann. \\
+	$f(k) = H(N, K, n) = \frac{\binom{K}{k}*\binom{N-K}{n-k}}{\binom{N}{n}}$
+\subsection{Geometrische Verteilung}
+	Die geometrische Verteilung beschreibt die Wartezeit für das erstmalige Eintreten eines 	
+	Ereignisses unter der Annahme der Gedaechtnislosigkeit. \\
+	$G(p) = f(n) = p*q^{n-1} \quad \quad m_1 = \frac{1}{p}$
+\section{Zufallsvarriablen}
+\subsection{Verteilungen von Zufallsvariablen}
+	Wir benoetigen mehrdimensionale integration, d.h. wir \textbf{muessen} wissen von
+	wo bis wo wir integrieren wollen \\ \\
+	\subsubsection{Beispiel, Ereignis gegeben + Verteilungsfunktion gegeben:}
+	$Ereignis: \: X_2 > 2X_1 \: => \: \underbrace{\int_{-\infty}^{+\infty}}_{X_1}
+	\underbrace{\int_{2X_1}^{+\infty}}_{X_2}$\\ \\ \\
+	$Verteilung: \: expotentiell \: => \: f(\lambda) = \lambda e^{-\lambda t}$ \\
+	$Ausserdem \: sei: \:  \lambda_1 = 1 \:\, und \:\, \lambda_2 =2 $\\ \\
+	Wir integrieren zunaechst ueber $X_2$ d.h. wir sezten $\lambda = 2$
+	\[
+		\begin{split}
+			\int_{-\infty}^{+\infty} \int_{2X_1}^{+\infty} 2 e^{-2 X_2} \: dX_2 dX_1
+		\end{split}
+	\]
+	Fuer $X_1$ setzen wir dann dementsprechend  $\lambda e^{-\lambda t}$ mit $\lambda = 1$ ein, dann nur noch das 2te Integral ausrechnen.
+	% \\ \\ \textbf{Moeglichkeit b) - Nach $x_1$ oder $x_2$ umstellen} \\ (ggf. mit Koordinatentransformation)
+	\subsubsection{Alternatives Beispiel:}
+	X,Y stochastisch unabhaengige, mit Parameter 'p' geometrisch verteilte Zufallsvarriablen 	in Wahrscheinlichkeitsraum $(\varOmega , \mathcal{A},P)$. Welche Verteilung besitzt 
+Zufallsvarriable $Z = min(X,Y)$, definiert durch $Z( \omega ) = min \{X(\omega),Y(\omega)\}$.\\ \[
+	
+\]
+\section{Marginaldichte - Beispielrechnung}
+\[	
+f(x_z,x_2)=
+	\begin{cases}
+		ce^{-(2x_1+3x_2)} & x_1  > 0 \: und \: 0 < x_2 <x_1 \\
+		0 & sonst
+	\end{cases}
+\]
+Marginaldichte:
+\[
+	\begin{split}
+		f_1(x_1) 	& = \int_{0}^{x_1} f(x_1,x_2) dx_2 \\
+					& = \int_{0}^{x_1} ce^{-2x_1}e^{-3x_2} \: dx_2 \\
+					& = \underbrace{c*e^{-2x_1}}_{\text{Konstante, da Integration nach} \: x_2}  \overbrace{\int_{0}^{x_1} e^{-3x_2} \: dx_2}^{mit \: 0 \: und \: x_1 \: einsetzen \: integrieren} \\
+					& = ce^{-2x_1}\, \frac{1}{3} (1-e^{-3x_2} )
+	\end{split}
+\]
+Gegebenenfalls koennen wir das gleiche auch mit $dx_2$ tun wenn das einfach zur integrieren ist oder nach beiden Marginaldichten gefragt ist.
+Damit $f(x_1,x_2)$ und $f_2(x_2)$ Dichten sind muss gelten:
+\[
+	\int f_2(x_2) dx_2 = 1
+\]
+und:
+\[
+	\int \int f(x_1,x_2) dx_1 dx_2 = 1
+\]
+\section{Koordinatentransformation}
+\end{document}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
