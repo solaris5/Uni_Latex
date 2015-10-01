@@ -1,7 +1,5 @@
 \documentclass{article}
-% -------- Mathe Libraries ---------------
 \usepackage{amsmath}
-\usepackage{amssymb}
 % -------- Umlaute korrekt ----------------
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman, english]{babel}
@@ -281,9 +279,6 @@ Wir integrieren zunaechst ueber $X_2$ d.h. wir sezten $\lambda = 2$
 \]
 Fuer $X_1$ setzen wir dann dementsprechend  $\lambda e^{-\lambda t}$ mit $\lambda = 1$ ein, dann nur noch das 2te Integral ausrechnen.
 % \\ \\ \textbf{Moeglichkeit b) - Nach $x_1$ oder $x_2$ umstellen} \\ (ggf. mit Koordinatentransformation)
-\subsubsection{Alternatives Beispiel:}
-X,Y stochastisch unabhaengige, mit Parameter 'p' geometrisch verteilte Zufallsvarriablen 	in Wahrscheinlichkeitsraum $(\varOmega , \mathcal{A},P)$. Welche Verteilung besitzt 
-Zufallsvarriable $Z = min(X,Y)$, definiert durch $Z( \omega ) = min \{X(\omega),Y(\omega)\}$.\\
 
 
 \section{Marginaldichte - Beispielrechnung}
@@ -391,24 +386,7 @@ unabhängig sind.
 		\end{align}
 		$\longrightarrow$ Da Mittelwert der $\varepsilon$-Verteilung gerade Kehrwert des
 		Paramters ist.
-	\item Folgerung: Dichte $g_1$ ist also die der Uniform-Verteilung ($\mathcal{U}(0,1)$).
+	\item Folgerung: Dichte $g_1$ ist also die der Uniform-Verteilung ($U(0,1)$).
 \end{enumerate}
 
-\section{Markov-Ketten}
-\begin{itemize}
-	\item Bei Übergangsmatrix $P \in (\mathbb{R}_{\geq 0})^{r x r}$ sind
-		alle Zeilensummen gleich $1$.
-	\item Vektor $\vec{u} \in (\mathbb{R}_{\geq 0})^{r}$ mit $||\vec{u}||_1 = 1$
-		der
-		\begin{align}
-			\vec{u} = P^T \cdot \vec{u}
-		\end{align}
-		erfüllt, heißt \textbf{Gleichgewichtszustand/-verteilung}.
-	\item Berechnung von $\vec{u}$: $\text{Kern}(P^T - \text{ Id}_r)$.\\$\rightarrow$
-		Kern wird berechnet durch klassischen Gauß- Algorithmus. Wenn keine
-		eindeutige Lsg (z.B. $0 = 0$), dann Variable beliebig wählen. Es gibt
-		immer einen Kern, da Determinante stets $0$ ist durch obige Summenbedinung.
-	\item Vektoreinträge müssen positiv sein, sonst Fehler.
-	\item Vektor auf Größe $1$ skalieren
-\end{itemize}
 \end{document}
