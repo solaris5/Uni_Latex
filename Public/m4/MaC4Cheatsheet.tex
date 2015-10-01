@@ -16,7 +16,7 @@
 
 \DeclareMathSizes{10}{10}{10}{10}
 \title{Mathe C4 Merz - Cheatsheet}
-\author{Yannik Schmidt (Sheppy)\\September 2015}
+\author{greeny, Sheppy\\September 2015}
 \date{Diesen Zusammenfassung kann Fehler enthalten!}
 \begin{document}
 \maketitle
@@ -112,6 +112,21 @@ $\textbf{oder noch allgemeiner, mit Anzahl Moeglichkeiten 'z' (z.B. 6 bei Wuerfe
 			x\\n
 	\end{pmatrix}(z-1)^{(n-x)}}{z^n}
 \]
+\subsubsection{X-Mal Werfen, min eine 3 unter der Bedingung min. eine 6}
+	A = min. eine 3 \\
+	B = min. eine 6 \\\\
+	\textbf{gesucht:} \[P(A|B) = \frac{P(A\cap B)}{P(B)} \]
+	\[P(B) = 1-P(keine\;6) = 1-\left(\frac{5}{6}\right)^4 = \frac{625}{1296}\]
+	\textbf{Idee:}
+		\begin{align*}
+			P(A\cap B) 	&= 1-P(\neg (A\cap B))\\
+						&= 1-P(\neg A \cap \neg B)\\
+						&= 1-P(\neg A) - P(\neg B) + P(\neg A \cap \neg B)\\
+						&= 1-P(keine\;3)-P(keine\;6)+P(weder\;3\;noch\;6)\\
+						&= 1-\left( \frac{5}{6}\right)^4-\left( \frac{5}{6}\right)^4-\left( \frac{4}{6}\right)^4 = 1- \frac{994}{1296}
+		\end{align*}	
+...und das dann nur noch oben einsetzen und fertig.
+
 \subsubsection{Seiten mit verschiedenen Wahrscheinlichkeiten}
 z.B. 6 Seiten mit normaler Wahrscheinlichkeit $(w_1)$, 8 Seiten mit 1/4 Wahrscheinlichkeit
 $(w_2)$, wir exploiten die Tatsache, dass: \\ \[ \sum
