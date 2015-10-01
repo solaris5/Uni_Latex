@@ -298,23 +298,9 @@ Die geometrische Verteilung beschreibt die Wartezeit für das erstmalige Eintret
 Ereignisses unter der Annahme der Gedaechtnislosigkeit. \\
 $G(p) = f(n) = p*q^{n-1} \quad \quad m_1 = \frac{1}{p}$
 \section{Zufallsvarriablen}
-\subsection{Verteilungen von Zufallsvariablen}
-Wir benoetigen mehrdimensionale integration, d.h. wir \textbf{muessen} wissen von
-wo bis wo wir integrieren wollen \\ \\
-\subsubsection{Beispiel, Ereignis gegeben + Verteilungsfunktion gegeben:}
-$Ereignis: \: X_2 > 2X_1 \: => \: \underbrace{\int_{-\infty}^{+\infty}}_{X_1}
-\underbrace{\int_{2X_1}^{+\infty}}_{X_2}$\\ \\ \\
-$Verteilung: \: expotentiell \: => \: f(\lambda) = \lambda e^{-\lambda t}$ \\
-$Ausserdem \: sei: \:  \lambda_1 = 1 \:\, und \:\, \lambda_2 =2 $\\ \\
-Wir integrieren zunaechst ueber $X_2$ d.h. wir sezten $\lambda = 2$
-\[
-	\begin{split}
-		\int_{-\infty}^{+\infty} \int_{2X_1}^{+\infty} 2 e^{-2 X_2} \: dX_2 dX_1
-	\end{split}
-\]
-Fuer $X_1$ setzen wir dann dementsprechend  $\lambda e^{-\lambda t}$ mit $\lambda = 1$ ein, dann nur noch das 2te Integral ausrechnen.
-% \\ \\ \textbf{Moeglichkeit b) - Nach $x_1$ oder $x_2$ umstellen} \\ (ggf. mit Koordinatentransformation)
-
+\subsection{Dichten von Verteilungen von Zufallsvariablen}
+	siehe Loesungssammlung Aufgabe 98 ff.	
+	
 \subsection{Erwartungswert $\varepsilon$ diskreter Zufallsvariablen}
 Falls der Erwartungswert einer diskreten Zufallsvariablen $X$ auf
 einem diskreten Wahrscheinlichkeitsraum $(\Omega, \mathcal{A}, P)$ existiert,
