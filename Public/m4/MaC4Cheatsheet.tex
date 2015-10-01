@@ -80,10 +80,35 @@ Die Regressionsgerade wird mit der Gauss'schen Normalengleichung geloest.
 		\sum y_i
 	\end{pmatrix} \text{, mit $i \in n$}
 \end{align}
-Regressionsgerade:
+\textbf{Regressionsgerade}:
 \begin{align}
 	y(x) = a*x + b
 \end{align}
+
+\subsection{Maximum-Likelyhood Methode}
+\textbf{Problembeschreibung}: Man moechte fuer einen unbekannten Parameter $\lambda$
+einer Verteilung, die mindestens einen Paramter besitzt, einen Schaetzwert bestimmen
+mithilfe einer konkreten Stichprobe $(x_1, \ldots, x_n)$.
+
+\begin{enumerate}
+	\item Likelihood-Funktion $L(\lambda)$ bilden fuer gegebene Verteilung
+		\begin{align}
+			L(\lambda) = L(x_1, \ldots, x_n; \lambda) = = \prod_{i=1}^n
+			\underbrace{f}_{\text{Dichtefunktion}}(x_i, \lambda)\\
+		\end{align}
+		Im Falle von Exponentialverteilung:\\
+		\begin{align}
+			\prod_{i=1}^n \lambda e^{-\lambda x_i} = \lambda^n * e^{-\lambda * \sum_{i=1}^{n}x_i}
+		\end{align}
+	\item Funktion $L(\lambda)$ mit $\ln$ multiplizieren\\
+		Rechenregeln fuer $\ln$:
+		\begin{itemize}
+			\item $\ln a^b = b * \ln a$
+			\item $\ln (a*b) = \ln a + \ln b$
+		\end{itemize}
+	\item Ableiten nach $\lambda$: $\frac{\partial \ln * L(\lambda)}{\partial \lambda}$
+	\item Funktion gleich $0$ setzen und nach $\lambda$ aufloesen.
+\end{enumerate}
 \section{Mengen}
 \subsection{o-Algebra}
 - leere Menge enthalten\\
@@ -484,6 +509,9 @@ unabhängig sind.
 			immer einen Kern, da Determinante $0$ garantiert ist durch obige\\
 			Summenbedingung.
 	\item Vektoreinträge müssen positiv sein, sonst Fehler.
-	\item Vektor auf Größe $1$ skalieren
+	\item Vektor $\vec{u}$ durch $||\vec{u}||_1$ (Summennorm) teilen.
+		\begin{align}
+			||\vec{u}|| := \sum^n_{i=1}|x_i|
+		\end{align}
 \end{itemize}
 \end{document}
