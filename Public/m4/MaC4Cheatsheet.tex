@@ -310,6 +310,23 @@ $f(k) = H(N, K, n) = \frac{\binom{K}{k}*\binom{N-K}{n-k}}{\binom{N}{n}}$
 Die geometrische Verteilung beschreibt die Wartezeit für das erstmalige Eintreten eines 	
 Ereignisses unter der Annahme der Gedaechtnislosigkeit. \\
 $G(p) = f(n) = p*q^{n-1} \quad \quad m_1 = \frac{1}{p}$
+\subsection{Uniform-Verteilung $\mathcal{U}(a,b)$}
+\textbf{Dichtefunktion}:
+\begin{align} f(x) =
+	\begin{cases}
+		\frac{1}{b - a} & a \leq x \leq b \\
+		0               &  sonst
+	\end{cases}
+\end{align}
+\textbf{Verteilungsfunktion}:
+\begin{align} F(x) =
+	\begin{cases}
+		0     & x \leq a\\
+		\frac{x - a}{b - a} & a < x < b \\
+		1     & x \geq b\\
+	\end{cases}
+\end{align}
+
 \section{Zufallsvarriablen}
 \subsection{Dichten von Verteilungen von Zufallsvariablen}
 	siehe Loesungssammlung Aufgabe 98 ff.	
