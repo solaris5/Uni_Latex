@@ -286,8 +286,20 @@ $f(x) = \frac{1}{\sqrt{2\pi}}*e^{-0.5x^2}$
 $f(x) = N(\mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}*e^{-\frac{1}{2\sigma^2}(x-		
 \mu)^2} \quad \quad m_1 = \mu \quad \quad \widehat{m}_2=\sigma^2$
 \subsection{Exponentiallverteilung}
-$f(\lambda) = \lambda*e^{-\lambda t}$
-
+\textbf{Dichtefunktion}:
+\begin{align} f_\lambda(x) =
+	\begin{cases}
+		\lambda*e^{-\lambda x} & x \geq 0 \\
+		0                                     & x <    0
+	\end{cases}
+\end{align}
+\textbf{Verteilungsfunktion}:
+\begin{align} F(x) = \int_0^x f_\lambda(t) dt =
+	\begin{cases}
+		1 - e^{-\lambda x} & x \geq 0 \\
+		0                                     & x <    0
+	\end{cases}
+\end{align}
 \subsection{Laplace-Verteilung}
 Zufallsexperimente, bei denen jedes Ergebnis die gleiche Chance hat. \\
 $f(w) = L(\Omega) = \frac{1}{|\Omega|}$
