@@ -11,6 +11,9 @@
 	\usetikzlibrary{shapes, shapes.misc}
 	\usetikzlibrary{decorations.markings,decorations.pathmorphing}
 	% -----------------------------------------
+	% Einrueckung unterbinden nach Absatz
+	\setlength{\parindent}{0pt}
+
 	\DeclareMathSizes{10}{10}{10}{10}
 	\title{Mathe C4 Merz - Cheatsheet}
 	\author{Yannik Schmidt (Sheppy)\\September 2015}
@@ -294,23 +297,66 @@ und:
 \end{tikzpicture}
 \end{center}
 \vspace*{7pt}
-Problem: Verteilung von $P^G$ gesucht bei gegebenen $P^X$:
+\textbf{Gegeben:} Man hat stochastisch unabhängige Zufallsvariablen $X_1, \ldots , X_n$ gegeben mit
+Art der Verteilung.
+
+\textbf{Gesucht:} Verteilung von Zufallsvariable $Y$, die sich aus $X_i$ berechnen lässt.
+
+\textbf{Beispiel:}\\
+Welche Verteilung besitzt
+\begin{align}
+	X = \frac{X_1}{X_1 + X_2}
+\end{align}
+falls $X_1$ und $X_2$ exponentiell verteilt mit Paramter $\lambda$ und stochastisch
+unabhängig sind.
+
 \begin{enumerate}
-	\item Funktionaldeterminante ($J_{G(x)}$) von $G$ berechnen
+	\item Wegen Unabhängigkeit der Variablen $X_1$ und $X_2$ besitzt $P^X$
+		die Dichte $f(x_1,x_2) = f_1(x_1)f_2(x_2)$.
+	\item $M = {(x_1, x_2); x_1 > 0 \text{ und } x_2 > 0}$\\
+		$\longrightarrow$ Wertebereich von $x_n$ anhand von Verteilung ermitteln.
+	\item Gleichungen  $G(x)$ definieren:
+		\begin{align}
+			y_1 = \frac{x_1}{x_1 + x_2}\\
+			y_2 = x_2
+		\end{align}
+	\item Funktionaldeterminante ($J_{G(x)}$) der Abbildung $G$ berechnen
+		\begin{align}
+			J_{G}(x) =
+			\text{det} \begin{pmatrix}
+				\frac{\partial G_1}{\partial x_1} (x) & \cdots & \frac{\partial G_1}{\partial x_n} (x) \\
+				\vdots  & \ddots & \vdots  \\
+				\frac{\partial G_n}{\partial x_1} (x) & \cdots & \frac{\partial G_n}{\partial x_n} (x) \\
+			\end{pmatrix}\\
+			J_{G}(x_1,x_2) =
+			\text{det} \begin{pmatrix}
+				\frac{x_2}{(x_1 + x_2)^2} & * \\
+					0 & 1 \\
+			\end{pmatrix} = \frac{x_2}{(x_1 + x_2)^2}
+		\end{align}
 	\item Umkehrabbildung $G^*$ berechnen. Alle Zufallsvariablen werden
 		werden mittels Funktionen verändert: z.B: $y_1 = x_1/x_2$.
 		Jede i-te Funktion nach $x_i$ auflösen.
+		\begin{align}
+			x1 = \frac{y_1y_2}{1 - y_1}\\
+			x_2 = y_2
+		\end{align}
 	\item Gesuchte Funktion: $g(y) = f(G^*(y))\frac{1}{|J_G(G^*(y))|}$\\
 		$\longrightarrow$ Setze für alle $x_i$ dementsprechend $y_i$ ein und multipliziere
 		mit Kehrwehrt von Funktionaldeterminante.
+		\begin{align}
+			g(y_1,y_2) = \lambda^2e^{-\frac{\lambda}{1 - y_1}}\frac{y_2}{(1-y_1)^2}
+		\end{align}
+	\item Mit Marginaldichte $g_1(y_1)$ berechnen:\\
+		\begin{align}
+			g_1(y_1) = \frac{\lambda}{1 - y_1} \int^\infty_0 y_2\frac{\lambda}{1 - y_1}
+			e^{-\frac{\lambda}{1 - y_1}} dy_2\\
+			= \frac{\lambda}{1 - y_1} m_1 (\varepsilon(\frac{\lambda}{1 - y_1}))\\
+			= 1
+		\end{align}
+		$\longrightarrow$ Da Mittelwert der $\varepsilon$-Verteilung gerade Kehrwert des
+		Paramters ist.
+	\item Folgerung: Dichte $g_1$ ist also die der Uniform-Verteilung ($U(0,1)$).
 \end{enumerate}
 
-\begin{align}
-	J_{G(x)} =
-	 \begin{pmatrix}
-		 \frac{\partial G_1}{\partial x_1} (x) & \cdots & \frac{\partial G_1}{\partial x_n} (x) \\
-		   \vdots  & \ddots & \vdots  \\
-		 \frac{\partial G_n}{\partial x_1} (x) & \cdots & \frac{\partial G_n}{\partial x_n} (x) \\
-		  \end{pmatrix}
-\end{align}
 \end{document}
