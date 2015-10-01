@@ -183,7 +183,20 @@ bei 3 Wuerfeln also z.B.:\[
 \[ \sum_{w \in \Omega} f(w) = 1 \text{ (die Summe aller Wahrscheinlichkeiten ist 1)}\]
 und logischerweise:
 \[ \forall w\in\Omega . f(w)>=0 \text{ (keine negativen Wahrscheinlichkeiten)} \]
-\subsection{Momenterzeugende Funktion}
+\subsection{Absoluten Momente diskreter Verteilungen}
+Ist fuer $k \in \{1,2,3,\ldots\}$ die Summe $\sum_{x \in X} |x|^kf(x) < \infty$,
+so heisst
+\begin{align}
+	m_k = m_k(P) = \sum_{x \in X} x^kf(x)
+\end{align}
+das \textbf{k-te absolute Moment} der Verteilung P.
+
+\subsubsection{Mittelwert, Varrianz}
+\begin{itemize}
+	\item Mittelwert: $m_1 = m_1(P) = \sum_{n=0}^\infty n*f(n)$
+	\item Varianz: $\widehat{m}_2 = m_2 - m_1^2$
+\end{itemize}
+\subsubsection{Momenterzeugende Funktion}
 \[
 	M(t)=\sum_{n\in\Omega}^{\infty}(e^t)^n * f(n)
 \]
@@ -191,14 +204,36 @@ und logischerweise:
 - 'n' koennte z.B. definiert sein als $n=\{1,2,3,...\}$
 \subsection{Erzeugende Funktion}
 \subsubsection{Wahrscheinlichkeitsfunktion berechnen}
-\subsubsection{Mittelwert}
-\subsubsection{Varianz}
-TODO
-\subsection{Mittelwert, Varrianz}
-\begin{itemize}
-	\item Mittelwert: $m_1 = \sum_{n=0}^\infty n*f(n)$
-	\item Varianz: $\widehat{m}_2 = m_2 - m_1^2$
-\end{itemize}
+\textbf{Gegegeben:} Eine erzeugende Funktion $\hat{f}(z)$ gegeben.
+\begin{align}
+	\hat{f}(z) = \sum^{\infty}_{k=0} f(k)z^k
+\end{align}
+\textbf{Gesucht:} Die Funktion $f(k)$
+
+Moeglichkeit 1: Taylorentwicklung
+\begin{align}
+	\hat{f}(z) = \sum_{k=0}^{\infty} \frac{1}{k!}\hat{f}^{(k)}(0)z^k\\
+	\Rightarrow f(k) = \frac{1}{k!} \hat{f}^{k}(0)
+\end{align}
+
+Moeglichkeit 2: Problem auf bekannte diskrete Verteilung zurueckfuehren (z.B. geometrische
+Reihe)
+\subsubsection{Mittelwert $m_1$}
+\begin{align}
+	M(t) = \hat{f}(e^t)\\
+	m_1  = M'(t)|_{t=0} = \hat{f}'(e^t)e^t|_{t=0} = \hat{f}'(1)
+\end{align}
+\subsubsection{Varianz $\hat{m}_2$}
+\begin{enumerate}
+	\item Zuerst \textbf{zweites Moment} berechnen:
+			\begin{align}
+				m_2 = \hat{f}''(1) + \hat{f}'(1)\\
+			\end{align}
+		\item Dann \textbf{Varianz}:
+			\begin{align}
+				\hat{m}_2 = m_2 - m_1^2
+			\end{align}
+\end{enumerate}
 \section{Verteilungen}
 \subsection{Allgemein}
 \subsubsection{Eigenschaften}
