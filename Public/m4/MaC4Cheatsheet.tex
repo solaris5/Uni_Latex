@@ -191,7 +191,7 @@ und logischerweise:
 - 'n' koennte z.B. definiert sein als $n=\{1,2,3,...\}$
 \subsection{Erzeugende Funktion}
 \subsubsection{Wahrscheinlichkeitsfunktion berechnen}
-\subsubsection{Mitterlwert}
+\subsubsection{Mittelwert}
 \subsubsection{Varianz}
 TODO
 \subsection{Mittelwert, Varrianz}
@@ -212,7 +212,7 @@ TODO
 \subsection{Binominalverteilung}
 \subsubsection{Allgemein}
 \[
-	\mathcal{B}(k | p,n) \enspace \textbf{ oder auch } \enspace B(k;p,n) = 
+	\mathcal{B}(k | p,n) \enspace \textbf{ oder auch } \enspace B(k;p,n) =
 \begin{pmatrix} n \\ k \end{pmatrix} p^k(1-p)^{n-k} \enspace \newline
 \text{mit k = 0,1,2,...,n} \]
 - wobei diese Funktion die \textbf{kommulierte} Wahrscheinlichkeit angibt, also z.B.
@@ -224,9 +224,9 @@ wobei k = 2 die Wahrscheinlichkeit "1 oder 2"
 Wie hoch ist die Wahrscheinlichkeit, dass auf einer Seite mindestens 3 Druckfehler
 sind?
 \[
-1- \sum_{k=0}^{2} \mathcal{B}(k|p,n) \enspace mit \enspace \] \\
-k=0,1,2 (Gegenereignisse)\\ n = 500 
-(wir ziehen Fehler "ohne zuruecklegen") \\ p=1/500 (die Wahrscheinlichkeit dass 
+1- \sum_{k=0}^{2} \mathcal{B}(k,p,n) \enspace mit \enspace \] \\
+k=0,1,2 (Gegenereignisse)\\ n = 500
+(wir ziehen Fehler "ohne zuruecklegen") \\ p=1/500 (die Wahrscheinlichkeit dass
 ein Fehler auf einer bestimmten Seite ist)\\
 \begin{equation*}
 	\begin{split}
