@@ -1,7 +1,5 @@
 \documentclass{article}
-% -------- Mathe Libraries ---------------
 \usepackage{amsmath}
-\usepackage{amssymb}
 % -------- Umlaute korrekt ----------------
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman, english]{babel}
@@ -370,24 +368,7 @@ unabhängig sind.
 		\end{align}
 		$\longrightarrow$ Da Mittelwert der $\varepsilon$-Verteilung gerade Kehrwert des
 		Paramters ist.
-	\item Folgerung: Dichte $g_1$ ist also die der Uniform-Verteilung ($\mathcal{U}(0,1)$).
+	\item Folgerung: Dichte $g_1$ ist also die der Uniform-Verteilung ($U(0,1)$).
 \end{enumerate}
 
-\section{Markov-Ketten}
-\begin{itemize}
-	\item Bei Übergangsmatrix $P \in (\mathbb{R}_{\geq 0})^{r x r}$ sind
-		alle Zeilensummen gleich $1$.
-	\item Vektor $\vec{u} \in (\mathbb{R}_{\geq 0})^{r}$ mit $||\vec{u}||_1 = 1$
-		der
-		\begin{align}
-			\vec{u} = P^T \cdot \vec{u}
-		\end{align}
-		erfüllt, heißt \textbf{Gleichgewichtszustand/-verteilung}.
-	\item Berechnung von $\vec{u}$: $\text{Kern}(P^T - \text{ Id}_r)$.\\$\rightarrow$
-		Kern wird berechnet durch klassischen Gauß- Algorithmus. Wenn keine
-		eindeutige Lsg (z.B. $0 = 0$), dann Variable beliebig wählen. Es gibt
-		immer einen Kern, da Determinante stets $0$ ist durch obige Summenbedinung.
-	\item Vektoreinträge müssen positiv sein, sonst Fehler.
-	\item Vektor auf Größe $1$ skalieren
-\end{itemize}
 \end{document}
