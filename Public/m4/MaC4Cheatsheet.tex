@@ -145,12 +145,30 @@ Zwei Gleichungen, zwei Unbekannte, easy mode.
 \subsection{Beispiele}
 \subsubsection{Krankheitstest}
 0,2\% Krank, 95\% der Kranken werden erkannt, 98\% der Gesunden werden richtig erkannt\\ \\
+Ereignis $A_1$: Person ist krank\\
+Ereignis $A_2$: Person ist gesund\\
+Ereignis $B$: Test identifiziert Person als krank.\\
+
 \textbf{Wie viele als Krank erkannte wirklich krank?}\\
 \[
-	P(K | K_{ident} ) = \frac{P(K_{ident}|K)*P(K)}
-	{P(K_{ident}|K)*P(K)+P(K_{ident}|K)*P(\neg K)} =
+	P(A_1 | B ) = \frac{P(B|A_1)*P(A_1)}
+	{P(B|A_1)*P(A_1)+P(B| A_2)*P(A_2)} =
 	\frac{0,95*0,002}{0,95*0,002+0,002*0,998} = 8,7\%
 \]
+
+\vspace*{10pt}
+
+Loesung mittels \textbf{Formel von Bayes}:
+\begin{align}
+	P(B_k/A) = \frac{P(A|B_k) * P(B_k)}{\sum_{j \in J} P(A|B_j) * P(B_j)}
+\end{align}
+Dieser Vorgang wird auch \textbf{Rueckwaertsinduktion} genannt. Angenommen man
+kennt die Wahrscheinlichkeit eines Ereignis unter einer gewissen Bedingung (hier Test
+schlaegt zu $x\%$ an unter Bedingung Person ist krank $P(B|A_1)$ oder Person ist gesund
+$P(B|A_2)$), dann kann man die umgekehrte bedingte Wahrscheinlichkeit
+mit dieser Formel berechnen. Hier: Wie wahrscheinlich ist es, dass Person krank ist, unter
+Bedingung, dass Test das gemeldet hat $P(A_1|B)$.
+
 \subsubsection{min. eine 6 unter Bedingung verschiedene Augenzahlen}
 \[
 	P(min. eine 6|verschiedene Augenzahlen) = \frac{\text{Moeglichkeiten verschiedene Augenzahlen UND min. eine 6}}{\text{Moeglichkeiten verschiedene Augenzahlen}}
