@@ -125,6 +125,57 @@ Standartwerte f\"ur Konfidenz:
 	\mu \in [\bar{x} - z_{1-\frac{\alpha}{2}} * \frac{\sigma}{\sqrt{n}}]
 \end{align}
 
+\subsection{Kovarianz}
+Sind zwei Zufallsvariablen $X_1$, $X_2$ stochastisch unabh\"angig dann
+gilt:
+
+\begin{align}
+	cov(X_1,X_2) = 0
+\end{align}
+
+Ansonsten:
+\begin{align}
+	cov(X_1,X_2) = E(X_1X_2) - E(X_1)E(X_2)
+\end{align}
+\textbf{Erwartungswert}:
+\begin{align}
+	EX = \sum_{k \in \Omega} k * P(X = k) = \int_{-\infty}^{\infty} x * f(x) dx
+\end{align}
+\textbf{Beispiel}:
+Berechnen der Kovarianz der Zufallsvariablen $Z_1 = X_1 - X_2$ und $Z_2 = X_1$,
+wenn der Zufallsvektor $(X_1,X_2)$ auf der Menge
+\begin{align}
+	M = \{(x_1,x_2)| 0 \leq x_2 \leq 2 \text{ und } 0 \leq x_1 \leq x_2\}
+\end{align}
+\textbf{Gesucht}: $cov(Z_1, Z_2)$
+\begin{enumerate}
+	\item Kovavarianz umformen
+		\begin{align}
+			cov(Z_1, Z_2) = cov(X_1-X_2, X_1) = (E(X^2_1)-E(X_1)^2)-(E(X_2X_1)-E(X_2)E(X_1))
+		\end{align}
+	\item Die \textbf{Fl\"ache} $A_M$ unter Funktion berechnen: $A_M = 2$.\\
+	\item Die \textbf{Dichtefunktion} ist der Kehrwert von $A_M$ und damit $\frac{1}{2}$.
+		\begin{align}
+			f(x_1,x_2) =
+			\begin{cases}
+				\frac{1}{2} & x_1,x_2 \in M \\
+				0 & sonst
+			\end{cases}
+		\end{align}
+	\item Jetzt wieder mittels \textbf{Marginalsdichte} $f(x_1)$ und $f(x_2)$ bestimmen.
+		\begin{align}
+			f_1(x_1) = \int_{x_1}^2 f(x_1,x_2) dx_2\\
+			f_2(x_2) = \int_{0}^{x_2} f(x_1,x_2) dx_1
+		\end{align}
+	\item Berechnung der ben\"otigten Erwartungswerte $E$:
+		\begin{align}
+			E(X_i) = \int_{0}^{2} x_i * f_i(x_i) dx\\
+			E(X_i^2) = \int_{0}^{2} x_i^2 * f_i(x_i) dx\\
+			E(X_1X_2) = \underbrace{\int_0^{2}\int_{0}^{x_2}}_{\text{Integration \"uber $x_1$ und
+			$x_2$}} x_1*x_2*f(x_1,x_2) dx_1 dx_2
+		\end{align}
+	\item Einsetzen in umgeformte Kovarianzformel (siehe 1)
+\end{enumerate}
 \section{Mengen}
 \subsection{o-Algebra}
 - leere Menge enthalten\\
@@ -178,18 +229,18 @@ $\textbf{oder noch allgemeiner, mit Anzahl M\"oglichkeiten 'z' (z.B. 6 bei W\"ur
 	\end{pmatrix}(z-1)^{(n-x)}}{z^n}
 \]
 \subsubsection{X-Mal Werfen, min eine 3 unter der Bedingung min. eine 6}
-	A = min. eine 3 \\
-	B = min. eine 6 \\\\
-	\textbf{gesucht:} \[P(A|B) = \frac{P(A\cap B)}{P(B)} \]
-	\[P(B) = 1-P(keine\;6) = 1-\left(\frac{5}{6}\right)^4 = \frac{625}{1296}\]
-	\textbf{Idee:}
-		\begin{align*}
-			P(A\cap B) 	&= 1-P(\neg (A\cap B))\\
-						&= 1-P(\neg A \cup \neg B)\\
-						&= 1-P(\neg A) - P(\neg B) + P(\neg A \cap \neg B)\\
-						&= 1-P(keine\;3)-P(keine\;6)+P(weder\;3\;noch\;6)\\
-						&= 1-\left( \frac{5}{6}\right)^4-\left( \frac{5}{6}\right)^4-\left( \frac{4}{6}\right)^4 = 1- \frac{994}{1296}
-		\end{align*}	
+A = min. eine 3 \\
+B = min. eine 6 \\\\
+\textbf{gesucht:} \[P(A|B) = \frac{P(A\cap B)}{P(B)} \]
+\[P(B) = 1-P(keine\;6) = 1-\left(\frac{5}{6}\right)^4 = \frac{625}{1296}\]
+\textbf{Idee:}
+\begin{align*}
+	P(A\cap B) 	&= 1-P(\neg (A\cap B))\\
+							   &= 1-P(\neg A \cup \neg B)\\
+							&= 1-P(\neg A) - P(\neg B) + P(\neg A \cap \neg B)\\
+						 &= 1-P(keine\;3)-P(keine\;6)+P(weder\;3\;noch\;6)\\
+						 &= 1-\left( \frac{5}{6}\right)^4-\left( \frac{5}{6}\right)^4-\left( \frac{4}{6}\right)^4 = 1- \frac{994}{1296}
+\end{align*}	
 ...und das dann nur noch oben einsetzen und fertig.
 
 \subsubsection{Seiten mit verschiedenen Wahrscheinlichkeiten}
@@ -292,13 +343,13 @@ Reihe)
 \subsubsection{Varianz $\hat{m}_2$}
 \begin{enumerate}
 	\item Z\"urst \textbf{zweites Moment} berechnen:
-			\begin{align}
-				m_2 = \hat{f}''(1) + \hat{f}'(1)\\
-			\end{align}
-		\item Dann \textbf{Varianz}:
-			\begin{align}
-				\hat{m}_2 = m_2 - m_1^2
-			\end{align}
+		\begin{align}
+			m_2 = \hat{f}''(1) + \hat{f}'(1)\\
+		\end{align}
+	\item Dann \textbf{Varianz}:
+		\begin{align}
+			\hat{m}_2 = m_2 - m_1^2
+		\end{align}
 \end{enumerate}
 \section{Verteilungen}
 \subsection{Allgemein}
@@ -460,10 +511,10 @@ Marginaldichte:
 \[
 	\begin{split}
 		f_1(x_1) 	& = \overbrace{\int_{0}^{x_1}}^{\text{Grenzen von }x_2} f(x_1,x_2) dx_2 \\
-						   & = \int_{0}^{x_1} ce^{-2x_1}e^{-3x_2} \: dx_2 \\
-						& = \underbrace{c*e^{-2x_1}}_{\text{Konstante, da Integration nach} \: x_2}
-						\overbrace{\int_{0}^{x_1} e^{-3x_2} \: dx_2}^{mit \: 0 \: und \: x_1 \: einsetzen \: integrieren} \\
-					 & = ce^{-2x_1}\, \frac{1}{3} (1-e^{-3x_2} )
+							  & = \int_{0}^{x_1} ce^{-2x_1}e^{-3x_2} \: dx_2 \\
+						   & = \underbrace{c*e^{-2x_1}}_{\text{Konstante, da Integration nach} \: x_2}
+		\overbrace{\int_{0}^{x_1} e^{-3x_2} \: dx_2}^{mit \: 0 \: und \: x_1 \: einsetzen \: integrieren} \\
+		& = ce^{-2x_1}\, \frac{1}{3} (1-e^{-3x_2} )
 	\end{split}
 \]
 Gegebenenfalls konnen wir das gleiche auch mit $dx_2$ tun wenn das einfach zur integrieren ist oder nach beiden Marginaldichten gefragt ist.
@@ -568,8 +619,8 @@ unabhängig sind.
 	\item \textbf{Berechnung} von $\vec{u}$: $\text{Kern}(P^T - \text{ Id}_r)$.\\$\rightarrow$
 		Kern wird berechnet durch klassischen Gauß- Algorithmus. Wenn keine
 		eindeutige Lsg (z.B. $0 = 0$), dann Variable beliebig wählen. Es gibt
-			immer einen Kern, da Determinante $0$ garantiert ist durch obige\\
-			Summenbedingung.
+		immer einen Kern, da Determinante $0$ garantiert ist durch obige\\
+		Summenbedingung.
 	\item Vektoreinträge müssen positiv sein, sonst Fehler.
 	\item Vektor $\vec{u}$ durch $||\vec{u}||_1$ (Summennorm) teilen.
 		\begin{align}
