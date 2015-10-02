@@ -371,8 +371,8 @@ $f(w) = L(\Omega) = \frac{1}{|\Omega|}$
 Zufallsexperimente, bei denen man die Ergebnisse als Anzahlen von schwarzen Kugeln unter 	n gezogenen interpretieren kann. \\
 $f(k) = H(N, K, n) = \frac{\binom{K}{k}*\binom{N-K}{n-k}}{\binom{N}{n}}$
 \subsection{Geometrische Verteilung}
-Die geometrische Verteilung beschreibt die Wartezeit für das erstmalige Eintreten eines 	
-Ereignisses unter der Annahme der Ged\"achtnislosigkeit. \\
+Die geometrische Verteilung beschreibt die Wartezeit für das erstmalige Eintreten
+eines Ereignisses unter der Annahme der Ged\"achtnislosigkeit. \\
 $G(p) = f(n) = p*q^{n-1} \quad \quad m_1 = \frac{1}{p}$
 \subsection{Uniform-Verteilung $\mathcal{U}(a,b)$}
 \textbf{Dichtefunktion}:
@@ -393,8 +393,25 @@ $G(p) = f(n) = p*q^{n-1} \quad \quad m_1 = \frac{1}{p}$
 
 \section{Zufallsvarriablen}
 \subsection{Dichten von Verteilungen von Zufallsvariablen}
-	siehe L\"osungssammlung Aufgabe 98 ff.	
-	
+\textbf{Problembeschreibung}: Berechnung von Wahrscheinlichkeit des
+Ereignisses $(X_1 > a * X_2)$ o.\"a.
+Zufallsvariablen $X_1, X_2$  sind dabei stochastisch
+unabh\"angig. Die Verteilungen von $X_i$ haben dabei die Dichten
+$f_i$.\\
+Somit gilt nach der Marginalsdichte: $f(x_1,x_2) = f_1(x_1)*f_2(x_2)$.
+
+\begin{align}
+	P(X_1 > a * X_2) = \int \int_{x_1>a*x_2} f_1(x_1)*f_2(x_2) dx_1dx_2 := I
+\end{align}
+In Abh\"angigkeit von Reihenfolge, in der die Integration \"uber die Variablen
+$x_1$ und $x_2$ durchgef"uhrt werden, ergeben sich zwei Darstellungen:
+
+\begin{align}
+	I = \int_{-\infty}^{\infty} f_1(x_1)F_2(\frac{1}{a}x_1)dx_1\\
+	I = \int_{-\infty}^{\infty} f_2(x_2)(1 - F_1(ax_2))dx_2
+\end{align}
+Siehe auch L\"osungssammlung Aufgabe $98$ ff.
+
 \subsection{Erwartungswert $\varepsilon$ diskreter Zufallsvariablen}
 Falls der Erwartungswert einer diskreten Zufallsvariablen $X$ auf
 einem diskreten Wahrscheinlichkeitsraum $(\Omega, \mathcal{A}, P)$ existiert,
