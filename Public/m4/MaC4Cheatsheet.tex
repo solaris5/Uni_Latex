@@ -2,7 +2,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 % -------- Umlaute korrekt ----------------
-\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+\usepackage[latin1, utf8]{inputenc}
 \usepackage[ngerman, english]{babel}
 %-------------------------------------------
 
@@ -32,7 +33,7 @@
 		\frac{x_{n/2} \;\; + x_{(n+1)/2}}{2}	& \text{n gerade}
 	\end{cases}
 \]
-Wobei der Index fuer die n'te Zahl in einer Angabe in Stile von \{A,B,C,...\} steht.
+Wobei der Index f\"ur die n'te Zahl in einer Angabe in Stile von \{A,B,C,...\} steht.
 \subsection{empirische Varianz}
 \[x_{var}=\frac{1}{n-1}\sum_{i=1}^n (x_i-x_{median})\]
 \subsection{Gleichgewichtsverteilung}
@@ -60,11 +61,11 @@ Wobei der Index fuer die n'te Zahl in einer Angabe in Stile von \{A,B,C,...\} st
 	\end{pmatrix}\right ]
 	^{-1}
 \]
-Wobei P die Uebergangsmatrix ist. Die Alternative ist die Matrix solang zu potentieren bis sie konvergiert.
+Wobei P die \"Ubergangsmatrix ist. Die Alternative ist die Matrix solang zu potentieren bis sie konvergiert.
 
 \section{Regressionsgerade}
 \subsection{Gauss'sche Normalengleichung}
-Die Regressionsgerade wird mit der Gauss'schen Normalengleichung geloest.
+Die Regressionsgerade wird mit der Gauss'schen Normalengleichung gel\"ost.
 \begin{align}
 	\begin{pmatrix}
 		\sum x_i^2 & \sum x_i \\
@@ -86,12 +87,12 @@ Die Regressionsgerade wird mit der Gauss'schen Normalengleichung geloest.
 \end{align}
 
 \subsection{Maximum-Likelyhood Methode}
-\textbf{Problembeschreibung}: Man moechte fuer einen unbekannten Parameter $\lambda$
-einer Verteilung, die mindestens einen Paramter besitzt, einen Schaetzwert bestimmen
+\textbf{Problembeschreibung}: Man m\"ochte f\"ur einen unbekannten Parameter $\lambda$
+einer Verteilung, die mindestens einen Paramter besitzt, einen Sch\"atzwert bestimmen
 mithilfe einer konkreten Stichprobe $(x_1, \ldots, x_n)$.
 
 \begin{enumerate}
-	\item Likelihood-Funktion $L(\lambda)$ bilden fuer gegebene Verteilung
+	\item Likelihood-Funktion $L(\lambda)$ bilden f\"ur gegebene Verteilung
 		\begin{align}
 			L(\lambda) = L(x_1, \ldots, x_n; \lambda) = = \prod_{i=1}^n
 			\underbrace{f}_{\text{Dichtefunktion}}(x_i, \lambda)\\
@@ -101,17 +102,17 @@ mithilfe einer konkreten Stichprobe $(x_1, \ldots, x_n)$.
 			\prod_{i=1}^n \lambda e^{-\lambda x_i} = \lambda^n * e^{-\lambda * \sum_{i=1}^{n}x_i}
 		\end{align}
 	\item Funktion $L(\lambda)$ mit $\ln$ multiplizieren\\
-		Rechenregeln fuer $\ln$:
+		Rechenregeln f\"ur $\ln$:
 		\begin{itemize}
 			\item $\ln a^b = b * \ln a$
 			\item $\ln (a*b) = \ln a + \ln b$
 		\end{itemize}
 	\item Ableiten nach $\lambda$: $\frac{\partial \ln * L(\lambda)}{\partial \lambda}$
-	\item Funktion gleich $0$ setzen und nach $\lambda$ aufloesen.
+	\item Funktion gleich $0$ setzen und nach $\lambda$ aufl\"osen.
 \end{enumerate}
 
 \subsection{Konfidenzintervalle}
-Standartwerte fuer Konfidenz:
+Standartwerte f\"ur Konfidenz:
 \begin{align*}
 	90\%:z = 1.65\\
 	95\%:z = 1.96\\
@@ -138,10 +139,10 @@ o-Algebra Menge = $\{\emptyset ,\{1,2\},\{3\},
 \{1,2,3,4\},\{1,2,4\}\}$
 
 \section{Wahrscheinlichkeiten}
-\subsection{Wuerfeln}
+\subsection{W\"urfeln}
 \subsubsection{keine 6}
 \[
-	p_0 = \left( \frac{5}{6} \right)^n , n = \text{Anzahl der Wuerfe}
+	p_0 = \left( \frac{5}{6} \right)^n , n = \text{Anzahl der W\"urfe}
 \]
 \subsubsection{mindestens 'x' 6er (Gegenereignis)}
 \[	
@@ -153,16 +154,16 @@ o-Algebra Menge = $\{\emptyset ,\{1,2\},\{3\},
 \[
 	p_x = 1 - \sum_{i=0}^{x-1} p_i
 \]
-\subsubsection{6er-Pasch bei 2 Wuerfeln}
-$Ereignisraum = 6^2 , \text{Anzahl guenstiger Ereignisse = 1 , naehmlich (6,6)}$\\
-dann wieder ueber Gegenereignis: \\
+\subsubsection{6er-Pasch bei 2 W\"urfeln}
+$Ereignisraum = 6^2 , \text{Anzahl g\"unstiger Ereignisse = 1 , n\"ahmlich (6,6)}$\\
+dann wieder \"uber Gegenereignis: \\
 \[ p=1-\left(\frac{35}{36}\right)^n \]
-\subsubsection{genau eine 6 bei n-Wuerfeln/Wuerfen}
+\subsubsection{genau eine 6 bei n-W\"urfeln/W\"urfen}
 \[ p= \frac{n*5^{(n-1)}}{6^n}\]\\
-- $6^n $ ist wie immer die Anzahl der Gesamtmoeglichkeiten \\
+- $6^n $ ist wie immer die Anzahl der Gesamtm\"oglichkeiten \\
 - es gibt n-Moglichkeiten an der die 6 sein kann \\
-- es bleiben bei den verbleibenden n-1 Wuerfen 5 Moeglichkeiten
-\subsubsection{genau x-6er bei n-Wuerfeln/Wuerfen}
+- es bleiben bei den verbleibenden n-1 W\"urfen 5 M\"oglichkeiten
+\subsubsection{genau x-6er bei n-W\"urfeln/W\"urfen}
 \[ p= \frac{\begin{pmatrix}
 			x\\n
 \end{pmatrix}5^{(n-x)}}{6^n}\]\\
@@ -170,7 +171,7 @@ dann wieder ueber Gegenereignis: \\
 		x\\n
 	\end{pmatrix}= \frac{n!}{k!(n-k)!}
 \]\\
-$\textbf{oder noch allgemeiner, mit Anzahl Moeglichkeiten 'z' (z.B. 6 bei Wuerfel):}$\[
+$\textbf{oder noch allgemeiner, mit Anzahl M\"oglichkeiten 'z' (z.B. 6 bei W\"urfel):}$\[
 	p= \frac{\begin{pmatrix}
 			x\\n
 	\end{pmatrix}(z-1)^{(n-x)}}{z^n}
@@ -219,25 +220,26 @@ Ereignis $B$: Test identifiziert Person als krank.\\
 
 \vspace*{10pt}
 
-Loesung mittels \textbf{Formel von Bayes}:
+L\"osung mittels \textbf{Formel von Bayes}:
 \begin{align}
 	P(B_k/A) = \frac{P(A|B_k) * P(B_k)}{\sum_{j \in J} P(A|B_j) * P(B_j)}
 \end{align}
-Dieser Vorgang wird auch \textbf{Rueckwaertsinduktion} genannt. Angenommen man
+Dieser Vorgang wird auch \textbf{R\"uckw\"artsinduktion} genannt. Angenommen man
 kennt die Wahrscheinlichkeit eines Ereignis unter einer gewissen Bedingung (hier Test
-schlaegt zu $x\%$ an unter Bedingung Person ist krank $P(B|A_1)$ oder Person ist gesund
+schl\"agt zu $x\%$ an unter Bedingung Person ist krank $P(B|A_1)$ oder Person ist gesund
 $P(B|A_2)$), dann kann man die umgekehrte bedingte Wahrscheinlichkeit
 mit dieser Formel berechnen. Hier: Wie wahrscheinlich ist es, dass Person krank ist, unter
 Bedingung, dass Test das gemeldet hat $P(A_1|B)$.
 
 \subsubsection{min. eine 6 unter Bedingung verschiedene Augenzahlen}
 \[
-	P(min. eine 6|verschiedene Augenzahlen) = \frac{\text{Moeglichkeiten verschiedene Augenzahlen UND min. eine 6}}{\text{Moeglichkeiten verschiedene Augenzahlen}}
+	P(min. eine 6|verschiedene Augenzahlen) = \frac{\text{M\"oglichkeiten verschiedene Augenzahlen
+	UND min. eine 6}}{\text{M\"oglichkeiten verschiedene Augenzahlen}}
 \]\\
 \[
 	p=\frac{n*(6-1)!-(6-n)!}{6!-n!} 
 \]
-bei 3 Wuerfeln also z.B.:\[
+bei 3 W\"urfeln also z.B.:\[
 	p=\frac{3*5!-3!}{6!-3!} = \frac{3*5*4}{6*5*4} = 0,5
 \]
 
@@ -247,7 +249,7 @@ bei 3 Wuerfeln also z.B.:\[
 und logischerweise:
 \[ \forall w\in\Omega . f(w)>=0 \text{ (keine negativen Wahrscheinlichkeiten)} \]
 \subsection{Absoluten Momente diskreter Verteilungen}
-Ist fuer $k \in \{1,2,3,\ldots\}$ die Summe $\sum_{x \in X} |x|^kf(x) < \infty$,
+Ist f\"ur $k \in \{1,2,3,\ldots\}$ die Summe $\sum_{x \in X} |x|^kf(x) < \infty$,
 so heisst
 \begin{align}
 	m_k = m_k(P) = \sum_{x \in X} x^kf(x)
@@ -264,7 +266,7 @@ das \textbf{k-te absolute Moment} der Verteilung P.
 	M(t)=\sum_{n\in\Omega}^{\infty}(e^t)^n * f(n)
 \]
 - f(n) ist die gegebene Wahrscheinlichkeitsfunktion\\
-- 'n' koennte z.B. definiert sein als $n=\{1,2,3,...\}$
+- 'n' k\"onnte z.B. definiert sein als $n=\{1,2,3,...\}$
 \subsection{Erzeugende Funktion}
 \subsubsection{Wahrscheinlichkeitsfunktion berechnen}
 \textbf{Gegegeben:} Eine erzeugende Funktion $\hat{f}(z)$ gegeben.
@@ -273,13 +275,13 @@ das \textbf{k-te absolute Moment} der Verteilung P.
 \end{align}
 \textbf{Gesucht:} Die Funktion $f(k)$
 
-Moeglichkeit 1: Taylorentwicklung
+M\"oglichkeit 1: Taylorentwicklung
 \begin{align}
 	\hat{f}(z) = \sum_{k=0}^{\infty} \frac{1}{k!}\hat{f}^{(k)}(0)z^k\\
 	\Rightarrow f(k) = \frac{1}{k!} \hat{f}^{k}(0)
 \end{align}
 
-Moeglichkeit 2: Problem auf bekannte diskrete Verteilung zurueckfuehren (z.B. geometrische
+M\"oglichkeit 2: Problem auf bekannte diskrete Verteilung zur\"uckf\"uhren (z.B. geometrische
 Reihe)
 \subsubsection{Mittelwert $m_1$}
 \begin{align}
@@ -288,7 +290,7 @@ Reihe)
 \end{align}
 \subsubsection{Varianz $\hat{m}_2$}
 \begin{enumerate}
-	\item Zuerst \textbf{zweites Moment} berechnen:
+	\item Z\"urst \textbf{zweites Moment} berechnen:
 			\begin{align}
 				m_2 = \hat{f}''(1) + \hat{f}'(1)\\
 			\end{align}
@@ -315,8 +317,8 @@ Reihe)
 \text{mit k = 0,1,2,...,n} \]
 - wobei diese Funktion die \textbf{kommulierte} Wahrscheinlichkeit angibt, also z.B.
 wobei k = 2 die Wahrscheinlichkeit "1 oder 2"
-\\ - p ist die Wahrscheinlichkeit fuer ein positives Ereigbnis
-\\ - n ist Anzaehl wie oft wir ziehen
+\\ - p ist die Wahrscheinlichkeit f\"ur ein positives Ereigbnis
+\\ - n ist Anz\"ahl wie oft wir ziehen
 
 \subsubsection{Beispiel: 500 Druckfehler auf 500 Seiten}
 Wie hoch ist die Wahrscheinlichkeit, dass auf einer Seite mindestens 3 Druckfehler
@@ -324,7 +326,7 @@ sind?
 \[
 1- \sum_{k=0}^{2} \mathcal{B}(k,p,n) \enspace mit \enspace \] \\
 k=0,1,2 (Gegenereignisse)\\ n = 500
-(wir ziehen Fehler "ohne zuruecklegen") \\ p=1/500 (die Wahrscheinlichkeit dass
+(wir ziehen Fehler "ohne zur\"ucklegen") \\ p=1/500 (die Wahrscheinlichkeit dass
 ein Fehler auf einer bestimmten Seite ist)\\
 \begin{equation*}
 	\begin{split}
@@ -337,7 +339,7 @@ ein Fehler auf einer bestimmten Seite ist)\\
 \end{equation*}
 \subsection{Possion-Verteilung}
 \subsubsection{Allgemein}
-Ereignisse muessen mit konstanter Rate, unabhaengig voneinander und in einem festen 
+Ereignisse m\"ussen mit konstanter Rate, unabh\"angig voneinander und in einem festen 
 Bereich (Modell) stattfinden!
 \[
 	P_{\lambda}(n) = \frac{\lambda ^n}{n!} e ^{- \lambda}
@@ -370,7 +372,7 @@ Zufallsexperimente, bei denen man die Ergebnisse als Anzahlen von schwarzen Kuge
 $f(k) = H(N, K, n) = \frac{\binom{K}{k}*\binom{N-K}{n-k}}{\binom{N}{n}}$
 \subsection{Geometrische Verteilung}
 Die geometrische Verteilung beschreibt die Wartezeit für das erstmalige Eintreten eines 	
-Ereignisses unter der Annahme der Gedaechtnislosigkeit. \\
+Ereignisses unter der Annahme der Ged\"achtnislosigkeit. \\
 $G(p) = f(n) = p*q^{n-1} \quad \quad m_1 = \frac{1}{p}$
 \subsection{Uniform-Verteilung $\mathcal{U}(a,b)$}
 \textbf{Dichtefunktion}:
@@ -391,7 +393,7 @@ $G(p) = f(n) = p*q^{n-1} \quad \quad m_1 = \frac{1}{p}$
 
 \section{Zufallsvarriablen}
 \subsection{Dichten von Verteilungen von Zufallsvariablen}
-	siehe Loesungssammlung Aufgabe 98 ff.	
+	siehe L\"osungssammlung Aufgabe 98 ff.	
 	
 \subsection{Erwartungswert $\varepsilon$ diskreter Zufallsvariablen}
 Falls der Erwartungswert einer diskreten Zufallsvariablen $X$ auf
@@ -418,7 +420,7 @@ Marginaldichte:
 					 & = ce^{-2x_1}\, \frac{1}{3} (1-e^{-3x_2} )
 	\end{split}
 \]
-Gegebenenfalls koennen wir das gleiche auch mit $dx_2$ tun wenn das einfach zur integrieren ist oder nach beiden Marginaldichten gefragt ist.
+Gegebenenfalls konnen wir das gleiche auch mit $dx_2$ tun wenn das einfach zur integrieren ist oder nach beiden Marginaldichten gefragt ist.
 Damit $f(x_1,x_2)$ und $f_2(x_2)$ Dichten sind muss gelten:
 \[
 	\int f_2(x_2) dx_2 = 1
