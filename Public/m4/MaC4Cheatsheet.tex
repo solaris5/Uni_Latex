@@ -413,6 +413,33 @@ $x_1$ und $x_2$ durchgef\"uhrt werden, ergeben sich zwei Darstellungen:
 \end{align}
 Siehe auch L\"osungssammlung Aufgabe $98$ ff.
 
+\subsubsection{Beispiel}
+Die Zufallsvariablen $X_1$ und $X_2$ seien uniform verteilt auf
+$[0, 2]$. Berechnen Wahrscheinlichkeit des Ereignisses $(X_1X_2 \leq \frac{1}{2})$.
+
+\begin{align}
+	M = \{(x_1, x_2) \in \mathbb{R}^2 | 0 \leq x_1,x_2 \leq 2\}\\
+	f(x_1,x_2) =
+	\begin{cases}
+		f(x_1)*f(x_2) = \frac{1}{4} & \text{f\"ur } (x_1,x_2) \in M \\
+		0 & \text{sonst}
+	\end{cases}
+\end{align}
+Borelsche Menge:
+\begin{align}
+	B = \{(x_1, x_2) \in \mathbb{R}^2 | x_1*x_2 \leq \frac{1}{2}\ = x_2 \leq \frac{1}{2 x_1}\} \\
+	P(x_1x_2 \leq \frac{1}{2}) = \int_B f(x_1, x_2) d(x_1, x_2) = \int 1_B*1_M*\frac{1}{4}
+	d(x_1,x_2)\\
+	\int 1_{B \cap M} * \frac{1}{4} d(x_1,x_2)
+\end{align}
+Schnittmenge aus $B$ und $M$:
+\begin{align}
+	B \cap M = \{(x_1, x_2) \in \mathbb{R}^2\ | (0 \leq x_1 \leq \frac{1}{4} \wedge 0 \leq x_2 \leq
+	2) \vee (\frac{1}{4} \leq x_1 \leq 2 \wedge 0 \leq x_2 \leq \frac{1}{2x_1})\}\\
+	\longrightarrow
+	P(x_1x_2 \leq \frac{1}{2}) = \int^{\frac{1}{4}}_{0} \int^2_0 \frac{1}{4} dx_1dx_2
+	+ \int^2_{\frac{1}{4}} \int^{\frac{1}{2x_1}}_0 \frac{1}{4} dx_2 dx_1
+\end{align}
 \subsection{Erwartungswert $\varepsilon$ diskreter Zufallsvariablen}
 Falls der Erwartungswert einer diskreten Zufallsvariablen $X$ auf
 einem diskreten Wahrscheinlichkeitsraum $(\Omega, \mathcal{A}, P)$ existiert,
