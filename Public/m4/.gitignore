@@ -1,4 +1,6 @@
 *.aux
+*.toc
+*.out
 *.pdf
 *.log
 *.fls
