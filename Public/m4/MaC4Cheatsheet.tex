@@ -305,7 +305,7 @@ so heisst
 \end{align}
 das \textbf{k-te absolute Moment} der Verteilung P.
 
-\subsubsection{Mittelwert, Varrianz}
+\subsubsection{Mittelwert, Varianz}
 \begin{itemize}
 	\item Mittelwert: $m_1 = m_1(P) = \sum_{n=0}^\infty n*f(n)$
 	\item Varianz: $\widehat{m}_2 = m_2 - m_1^2$
@@ -341,7 +341,9 @@ Reihe)
 \begin{enumerate}
 	\item Zuerst \textbf{zweites Moment} berechnen:
 		\begin{align}
-			m_2 = \hat{f}''(1)
+			m_2 = \hat{f}''(1) + \hat{f}'(1) \rightarrow \text{, falls \textbf{Erzeugende-Funktion}
+			(hier)}\\
+			m_2 = \hat{f}''(0) \rightarrow \text{, falls \textbf{Momenterzeugende-Funktion}}
 		\end{align}
 	\item Dann \textbf{Varianz}:
 		\begin{align}
