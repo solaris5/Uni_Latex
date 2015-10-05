@@ -37,8 +37,8 @@
 	\end{cases}
 \]
 Wobei der Index f\"ur die n'te Zahl in einer Angabe in Stile von \{A,B,C,...\} steht.
-\subsection{empirische Varianz}
-\[x_{var}=\frac{1}{n-1}\sum_{i=1}^n (x_i-x_{median})\]
+\subsection{empirische korrigierte Varianz}
+\[x_{var}=\frac{1}{n-1}\sum_{i=1}^n (x_i-x_{arith})\]
 \subsection{Regressionsgerade}
 \textbf{Gauss'sche Normalengleichung}
 Die Regressionsgerade wird mit der Gauss'schen Normalengleichung gel\"ost.
@@ -338,9 +338,9 @@ Reihe)
 \end{align}
 \subsubsection{Varianz $\hat{m}_2$}
 \begin{enumerate}
-	\item Z\"urst \textbf{zweites Moment} berechnen:
+	\item Zuerst \textbf{zweites Moment} berechnen:
 		\begin{align}
-			m_2 = \hat{f}''(1) + \hat{f}'(1)\\
+			m_2 = \hat{f}''(1)\\
 		\end{align}
 	\item Dann \textbf{Varianz}:
 		\begin{align}
@@ -348,9 +348,9 @@ Reihe)
 		\end{align}
 		Siehe unten f\"ur m_2 Berechnungsvorschrift!
 \end{enumerate}
-\section{Verteilungen}
+\section{Verteilungen und Verteilungsfunktionen}
 \subsection{Allgemein}
-\subsubsection{Eigenschaften}
+\subsubsection{Eigenschaften Verteilungsfunktionen}
 \begin{itemize}		
 	\item stetig
 	\item monoton steigend
@@ -379,14 +379,12 @@ k=0,1,2 (Gegenereignisse)\\ n = 500
 ein Fehler auf einer bestimmten Seite ist)\\
 \begin{equation*}
 	\begin{split}
-		1- \sum_{k=0}^{2} \mathcal{B}(k|1/500,500)& = 1 - \mathcal{B}(0|1/500,500) - \mathcal{B}(1|1/500,500) - \mathcal{B}(2|
-		1/500,500) \\
-		& = 1 -  \mathcal{B}(0|1/500,500) - \mathcal{B}(1|1/500,500) - \mathcal{B}(2|
-		1/500,500) \\
+		1- \sum_{k=0}^{2} \mathcal{B}(k|1/500,500)
+		& = 1 - \mathcal{B}(0|1/500,500) - \mathcal{B}(1|1/500,500) - \mathcal{B}(2|1/500,500) \\
 		& = 1 - \left( \frac{499}{500} \right) ^{500} - 500\frac{1}{500}\left(\frac{499}{500}\right)^{499} - \frac{500*499}{1*2}\left( \frac{1}{500} \right) ^2 \left( \frac{499}{500} \right) ^{498} \\ & = 0,08
 	\end{split}
 \end{equation*}
-\subsection{Possion-Verteilung}
+\subsection{Poission-Verteilung}
 \subsubsection{Allgemein}
 Ereignisse m\"ussen mit konstanter Rate, unabh\"angig voneinander und in einem festen 
 Bereich (Modell) stattfinden!
@@ -522,7 +520,7 @@ Damit $f(x_1,x_2)$ und $f_2(x_2)$ Dichten sind muss gelten:
 \[
 	\int f_2(x_2) dx_2 = 1
 \]
-und:
+bzw:
 \[
 	\int \int f(x_1,x_2) dx_1 dx_2 = 1
 \]
@@ -565,8 +563,8 @@ unabhängig sind.
 		$\longrightarrow$ Wertebereich von $x_n$ anhand von Verteilung ermitteln.
 	\item Gleichungen  $G(x)$ definieren:
 		\begin{align}
-			y_1 = \frac{x_1}{x_1 + x_2}\\
-			y_2 = x_2
+			y_1 &= \frac{x_1}{x_1 + x_2}\\
+			y_2 &= x_2
 		\end{align}
 	\item Funktionaldeterminante ($J_{G}(x)$) der Abbildung $G$ berechnen
 		\begin{align}
