@@ -4,7 +4,6 @@
 	\DeclareMathSizes{10}{10}{10}{10}
 	\setlength{\parindent}{0pt}
 	\title{Ko-Rekursion/-Induktion}
-	\author{Yannik Schmidt (Sheppy)\\September 2015}
 	\date{ }
 	\begin{document}
 	\maketitle
@@ -63,7 +62,11 @@
 	\section{Ko-Induktion:}
 	\textbf{Induktionsanfang:}\\
 	$\rightarrow$ anhand erster Formel 'R' aufstellen
-	\[ R = \{ \underbrace{sampler(square\:0\:1)(square\:x\:0)}_{linke\:Seite},\underbrace{flat\:0}_{rechte\:Seite} \:|\: \underbrace{x\in Int}_{von\:oben}\}\]
+	\[ 
+		R = \{ 
+			\underbrace{
+				sampler(square\:0\:1)(square\:x\:0)}_{linke\:Seite},\underbrace{flat\:0}_{rechte\:Seite} \:|\: \underbrace{x\in Int}_{von\:oben}\}
+		\]
 	$\rightarrow$ "R ist Bisimulation" hinschreiben, linke Seite aufloesen\\
 	\[ sampler(square\:0\:1)(square\:x\:0) = 0 \]
 	$\rightarrow$ wenn hier am Endde kein Term rauskommt, dann koennen wir einfach die \textbf{rechte Seite bei der normalen Funktion} einsetzen und selbige aufloesen:
