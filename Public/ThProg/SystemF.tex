@@ -1,6 +1,8 @@
 	\documentclass{article}
 	\usepackage{amsmath}
 	\usepackage{nccmath}
+	%\usepackage{bussproofs}
+	%dieses Paket koennte man fuer die typherleitung verwenden wenn man wollte
 	\DeclareMathSizes{10}{10}{10}{10}
 	\setlength{\parindent}{0pt}
 	\title{System F und Reduktionsreihenfolge}
@@ -45,7 +47,7 @@
 			 				&=\;	\lambda a\, .\, (mult\;two)\,((mult\;two)\,((mult\;two)\;a\,)\;one\\
 			 				&=\;	(mult\;two)\,((mult\;two)\,((mult\;two)\;one\,)
 		\end{align*}
-	\subsubsection*{b) Apllikativer Reihenfolge}
+	\subsubsection*{b) Aplikativer Reihenfolge}
 		\begin{align*}
 			pow2\;three\;	&=\;	pow2\; (\, \lambda f\,a\, .\,f\,(\,f\,(\,f\;a\,) \,)\\
 							&=\;	(\, \lambda f\,a\, .\,f\,(\,f\,(\,f\;a\,) \,)(mult\;two)\;one\\
@@ -63,6 +65,23 @@
 	(beim zweiten g\"abe es gerade auch gar nichts mehr zu machen)
 
 	\subsection*{2) Typherleitung}
+	
+	
+	$
+	\{
+		
+	\}
+	$
+	\\
+	%Zeile 1	
+	$
+	\{
+		\,mult\;:\;
+		\mathrm{N}\rightarrow\mathrm{N}\rightarrow\mathrm{N}\rightarrow ,
+		one\; : \; \mathrm{N},\,two\;\mathrm{N}\,
+	\}
+	\vdash \; \lambda n.\,n\,(\, mult \; two\,)\;one\,:\mathrm{N}\rightarrow\mathrm{N}
+	$	
 		
 		
 		
@@ -74,14 +93,8 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-	\begin{tiny}
+	
+\begin{tiny}
 	\copyright\ Joint-Troll-Expert-Group (JTEG) 2015
-	\end{tiny}
+\end{tiny}
 \end{document}

@@ -6,3 +6,7 @@
 *.fls
 *.fdb_latexmk
 .*.swp
+*id_rsa*
+*.gz
+build
+test.tex
