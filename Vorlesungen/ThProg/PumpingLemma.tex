@@ -1,14 +1,29 @@
 	\documentclass{article}
 	\usepackage{amsmath}
+	\usepackage{ amssymb } % >= as \geq
 	\usepackage{nccmath}
+	%New Commands
+	\newcommand{\xhspace}[0]{\noindent\hspace*{5mm}}
 	\DeclareMathSizes{10}{10}{10}{10}
 	\setlength{\parindent}{0pt}
-	\title{Struckturelle Induktion}
+	\title{Pumping Lemme f\"ur Regul\"are Sprachen}
 	\date{ }
 	\begin{document}
 	\maketitle
 	%----------------------------------%
-	
+	\textbf{L ist regul\"ar wenn:}
+		\[		
+			\forall l \geq 1\;.\, \exists w \in L\;mit\; |w|\geq l
+		\]
+	\textbf{sodass:}\\
+		\xhspace	$\forall$ uvz \\
+	\textbf{mit:}\\ 
+		\xhspace	w=uvz\\
+		\xhspace	$|$v$|$ $\geq$ 1\\
+		\xhspace	$|$uv$|$ $\leq$ l\\
+	\textbf{gilt:}\\
+		\xhspace	u$v^{k}$z $\notin$ L 
+
 	\begin{tiny}
 	\copyright\ Joint-Troll-Expert-Group (JTEG) 2015
 	\end{tiny}
