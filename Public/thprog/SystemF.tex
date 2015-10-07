@@ -1,0 +1,59 @@
+	\documentclass{article}
+	\usepackage{amsmath}
+	\usepackage{nccmath}
+	\DeclareMathSizes{10}{10}{10}{10}
+	\setlength{\parindent}{0pt}
+	\title{System F und Reduktionsreihenfolge}
+	\date{ }
+	\begin{document}
+		\section{Generelles}
+		\subsection{Normale-/Lazy-Reduktion}
+			- pre-order durch Baum ("von unten nach oben auswerten")	\\
+			- leftmost-outermost\\
+			- Argumente zum Schluss auswerten
+			\begin{align*}			
+				pow(a,pow(c,b))\:\:	& mit\;linkem\;pow\;anfangen\\
+									& dann\;a\\
+									& dann\;rechtes\;pow\\
+									& dann\;c\\
+									& dann\;d
+			\end{align*}
+		\subsection{Applikative Reduktion:}
+			- post-order durch Baum ("von oben nach unten")\\
+			- leftmost-innermost\\
+			- als erstes die Argumente auswerten
+			\begin{align*}
+				pow(a,pow(c,b))\:\: & mit\;c\;anfangen
+				\enspace\;\;\;\;\;\;\;\;\;\enspace\;\;\;\;
+											\\
+									& dann\;b\\
+									& dann\;a\\
+									& dann\;rechtes\;pow\\
+									& dann\;linkes\;pow
+			\end{align*}
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	\begin{tiny}
+	\copyright\ Joint-Troll-Expert-Group (JTEG) 2015
+	\end{tiny}
+\end{document}

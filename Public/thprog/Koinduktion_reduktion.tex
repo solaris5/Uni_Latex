@@ -1,0 +1,111 @@
+	\documentclass{article}
+	\usepackage{amsmath}
+	\usepackage{nccmath}
+	\DeclareMathSizes{10}{10}{10}{10}
+	\setlength{\parindent}{0pt}
+	\title{Ko-Rekursion/-Induktion}
+	\date{ }
+	\begin{document}
+	\maketitle
+	\section{Korekursion}
+	\textbf{Gegeben:}
+		\begin{fleqn}
+				\begin{align*}
+					co&data Signal\:where  \\
+					& \enspace currentSample : Signal \rightarrow Int \\
+					& \enspace discardSample : Signal \rightarrow Signal
+				\end{align*}
+		\end{fleqn}
+	\textbf{sowie:}
+	\begin{fleqn}
+	\begin{align*}
+		&currentSample(flat\:x) = x			&
+		&discardSample(flat\:x) = flat\:x	\\
+		&currentSample(square\:x\:y)		&
+		&discardSample(square\:x\:y)		
+	\end{align*}	
+	\end{fleqn}
+	\textbf{Es soll gelten:}\\
+	sampler t s\enspace = s , wenn $t>0$ und 0 sonst\\
+	sowie insbesondere:
+	\begin{fleqn}
+	\begin{align*}
+		&sampler:\:Signal\rightarrow Signal\rightarrow Signal \\
+		&sampler(square\:0\:1)(square\:x\:0) = flat\:0 \\
+		&sampler(square\:1\:0)(flat\:x) = square\:x\:0  \\
+	\end{align*}	
+	\end{fleqn}
+	\textbf{Schritt 1:}\\
+	$\rightarrow$ sampler Funktion in codata-Funktionen einsetzen
+	\begin{fleqn}
+	\begin{align*}
+		&currentSample(sampler\:t\:s)\\
+		&discardSample(sampler\:t\:s)	
+	\end{align*}	
+	\end{fleqn}
+	\textbf{Schritt 2:}\\
+	$\rightarrow$ Bedingung von oben bei erster Funktion anwenden also:
+	\begin{fleqn}
+		\begin{align*}
+			currentSample(sampler\:t\:s) = \:&if\:(currentSample\:\:t>0)\\
+											&then\:(currentSample\:\:s)\\
+											&else\:(flat\:\:0)
+		\end{align*}
+	\end{fleqn}
+	\textbf{sowie zweite Formel zum Aufteilen verwenden:}
+		\begin{fleqn}
+		\begin{align*}
+			discardSample(sampler\:t\:s) = sampler(discardSample\:\:t)(discardSample\:\:s)
+		\end{align*}
+	\end{fleqn}
+	\newpage
+	\section{Ko-Induktion:}
+	\textbf{Induktionsanfang:}\\
+	$\rightarrow$ anhand erster Formel 'R' aufstellen
+	\[ 
+		R = \{ 
+			\underbrace{
+				sampler(square\:0\:1)(square\:x\:0)}_{linke\:Seite},\underbrace{flat\:0}_{rechte\:Seite} \:|\: \underbrace{x\in Int}_{von\:oben}\}
+		\]
+	$\rightarrow$ "R ist Bisimulation" hinschreiben, linke Seite aufloesen\\
+	\[ sampler(square\:0\:1)(square\:x\:0) = 0 \]
+	$\rightarrow$ wenn hier am Endde kein Term rauskommt, dann koennen wir einfach die \textbf{rechte Seite bei der normalen Funktion} einsetzen und selbige aufloesen:
+	\[ currentSample(flat\;0) = 0 \]
+	$\rightarrow$ sehr gut, die rechten Seiten sind gleich wir sind hier also fertig\\ \\
+	\textbf{zweite Bedingung:}
+		\[discardSample(sampler(square\:1\:0)(square\:0\:x)) = sampler(square\:1\:0)(square\:0\:x)\]
+	\textit{das ist doof denn:}
+		\[discardSample(flat 0) = 0\]
+	\textbf{Schritt 3:}\\
+	\[R' = R \;\cup\;\{\underbrace{sampler(square\:1\:0)(square\:0\:x)}_{aufgeloeste\;2.\;Bedingung},flat\;0\:|\:x\in Int\}\]	
+	wir muessen jetzt zeigen:
+	\[
+		currentSample(\underbrace{sampler(square\:1\:0)(square\:0\:x)}_{hier\;=\;0}) = \underbrace{currentSample(flat\;0)}_{hier\;=\;0}
+	\]
+	passt also, jetzt wie oben auch zweite Funktion:
+	\[
+		discardSample(sampler(square\:1\:0)(square\:0\:x)) = \underbrace{sampler(square\:1\:0)(square\:0\:x)}_{wieder\;linke\;Seite\;in\;R'}\]\[
+		discardSample(flat\;0) = \underbrace{flat\;0}_{wieder\;rechte\;Seite}
+	\]
+	und fertig!\\\\
+	\begin{tiny}
+	\copyright\ Joint-Troll-Expert-Group (JTEG) 2015
+	\end{tiny}
+	\newpage
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}
