@@ -1,0 +1,100 @@
+	\documentclass{article}
+	\usepackage{amsmath}
+	\usepackage{nccmath}
+	%\usepackage{bussproofs}
+	%dieses Paket koennte man fuer die typherleitung verwenden wenn man wollte
+	\DeclareMathSizes{10}{10}{10}{10}
+	\setlength{\parindent}{0pt}
+	\title{System F und Reduktionsreihenfolge}
+	\date{ }
+	\begin{document}
+	\section{Generelles}
+		\subsection{Normale-/Lazy-Reduktion}
+			- pre-order durch Baum ("von unten nach oben auswerten")	\\
+			- leftmost-outermost\\
+			- Argumente zum Schluss auswerten
+			\begin{align*}			
+				pow(a,pow(c,b))\:\:	& mit\;linkem\;pow\;anfangen\\
+									& dann\;a\\
+									& dann\;rechtes\;pow\\
+									& dann\;c\\
+									& dann\;d
+			\end{align*}
+		\subsection{Applikative Reduktion:}
+			- post-order durch Baum ("von oben nach unten")\\
+			- leftmost-innermost\\
+			- als erstes die Argumente auswerten
+			\begin{align*}
+				pow(a,pow(c,b))\:\: & mit\;c\;anfangen
+				\enspace\;\;\;\;\;\;\;\;\;\enspace\;\;\;\;
+											\\
+									& dann\;b\\
+									& dann\;a\\
+									& dann\;rechtes\;pow\\
+									& dann\;linkes\;pow
+			\end{align*}
+		\subsection{How to work with Lambda}
+			- Buchstabe hinter $\lambda $ wegnehmen\\
+			- Term von der respektiven Stelle hinten entfernen\\
+			- alle Vorkommen des Buchstabens mit dem Term ersetzen\\
+			- idealerweise bei mehreren $\lambda$ in einem Term \textbf{immer} verschiedene Buchstaben verwenden
+	\section{SS14-Probeklausur Beispielaufgabe}
+	\subsection*{1) Reduktion}
+	\subsubsection*{a) Normal/Lazy}
+		\begin{align*}
+			 pow2\;three\;	&=\;	three\;(mult\;two)\;one\\
+			 				&=\;	\lambda f\,a\, .\,f\,(\,f\,(\,f\;a\,)(\,mult\;two)\;one\\
+			 				&=\;	\lambda a\, .\, (mult\;two)\,((mult\;two)\,((mult\;two)\;a\,)\;one\\
+			 				&=\;	(mult\;two)\,((mult\;two)\,((mult\;two)\;one\,)
+		\end{align*}
+	\subsubsection*{b) Aplikativer Reihenfolge}
+		\begin{align*}
+			pow2\;three\;	&=\;	pow2\; (\, \lambda f\,a\, .\,f\,(\,f\,(\,f\;a\,) \,)\\
+							&=\;	(\, \lambda f\,a\, .\,f\,(\,f\,(\,f\;a\,) \,)(mult\;two)\;one\\
+							&=\;	(\, \lambda f\,a\, .\,f\,(\,f\,(\,f\;a\,) \,)(mult\;\lambda g\,b\, .\,g\,(\,g\;b\,))\;one\\
+							&=\;	(\, \lambda f\,a\, .\,f\,(\,f\,(\,f\;a\,) \,)(mult\;\lambda g\,b\, .\,g\,(\,g\;b\,))\;(\lambda h\,c\, .\,h\;c)\\
+		\end{align*}
+	kleine Anmerkung hierzu noch:
+	\[
+		\underbrace{(\, \lambda f\,a\, .\,f\,(\,f\,(\,f\;a\,) \,)}_{oberste\;Funktion}
+		\underbrace{(mult\;\lambda g\,b\, .\,g\,(\,g\;b\,))}_{erstes\;Argument}
+		\;
+		\underbrace{(\lambda h\,c\, .\,h\;c)}_{zweites\;argument}
+	\]
+	d.h. wir w\"urden hier beim ersten Argument weitermachen und "mult" aufl\"osen
+	(beim zweiten g\"abe es gerade auch gar nichts mehr zu machen)
+
+	\subsection*{2) Typherleitung}
+	
+	
+	$
+	\{
+		
+	\}
+	$
+	\\
+	%Zeile 1	
+	$
+	\{
+		\,mult\;:\;
+		\mathrm{N}\rightarrow\mathrm{N}\rightarrow\mathrm{N}\rightarrow ,
+		one\; : \; \mathrm{N},\,two\;\mathrm{N}\,
+	\}
+	\vdash \; \lambda n.\,n\,(\, mult \; two\,)\;one\,:\mathrm{N}\rightarrow\mathrm{N}
+	$	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+\begin{tiny}
+	\copyright\ Joint-Troll-Expert-Group (JTEG) 2015
+\end{tiny}
+\end{document}

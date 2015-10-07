@@ -1,0 +1,51 @@
+	\documentclass{article}
+	\usepackage{amsmath}
+	\usepackage{nccmath}
+	\DeclareMathSizes{10}{10}{10}{10}
+	\setlength{\parindent}{0pt}
+	\title{Struckturelle Induktion}
+	\date{ }
+	\begin{document}
+	\maketitle
+	%----------------------------------%
+	\textbf{Referenzaufgabe:} \\
+		\\
+		\textbf{data List} a = $Nil$ $|$ $Cons$ a \textbf{List} a
+		\begin{align*}
+			snoc\;Nil\;a 			&= Cons\;a\;Nil\\
+			snoc(Cons\;x\;xs)\;a	&= Cons\;x\;(snoc\;xs\;a)
+		\end{align*}
+		\begin{align*}
+			Nil + ys 			&= ys\\
+			(Cons\;x\;xs) + ys 	&= Cons\;x\;(xs + ys)
+		\end{align*}
+		\underline{Beweisen sie dass:}\\
+		$\forall e,\;xs,\;ys\\xs+(Cons\;e\;ys) = (snoc\;xs\;e)+ys$ \\\\
+	%----------------------------------%
+	\textbf{Induktionsanfang (IA):}\\\\
+		$xs = Nil$\;\;$\Rightarrow$ Einsetzen und beide Seiten maximal vereinfachen
+	\begin{align*}
+		Nil+(Cons\;e\;ys) 	&= (snoc\;Nil\;e)+ys\\
+			 Cons\;e\;ys	&= (snoc\;Nil\;e)+ys\\
+			 Cons\;e\;ys	&= (Cons e Nil) + ys\\
+			 Cons\;e\;ys	&= Cons\;e (Nil + ys)\\
+			 Cons\;e\;ys	&= Cons\;e\;ys
+	\end{align*}
+	\textbf{Induktionshypothese/-voraussetzeung (IH/IV):}\\\\
+	- $xs$ durch allgemeines as ersetzen
+	\[as+(Cons\;e\;ys) = (snoc\;as\;e)+ys\]
+\newpage
+	\textbf{Induktionsschritt (IS):}\\\\
+	$as\;=\;Cons\;a\;as$\\$\Rightarrow$ Einsetzen und wieder beide Seiten maximal vereinfachen,auf einer Seite die Induktionshypothese reinfrikeln (idR. nur auf einer Seite,z.B. auf der linken)
+	\begin{align*}
+		Cons\;a\;as\;+(Cons\;e\;ys)\;&=\;snoc\;((Cons\;a\;as)\;e)+ys \\
+		Cons\;a\;(\underbrace{as\;+(Cons\;e\;ys)}_{IH\;links})\;&=\;snoc\;((Cons\;a\;as)\;e)+ys\\
+		Cons\;a\;(\underbrace{(snoc\;as\;e)\;+\;ys)}_{IH\;rechts})\;&=\;snoc\;((Cons\;a\;as)\;e)+ys\\
+		Cons\;a\;((snoc\;as\;e)\;+\;ys))\;&=\;Cons\;a\;((\;snoc\;as\;e)\;+\;ys))
+	\end{align*}\\
+\textbf{Q.E.D. und fertig!}\\
+\\\\
+	\begin{tiny}
+	\copyright\ Joint-Troll-Expert-Group (JTEG) 2015
+	\end{tiny}
+\end{document}
