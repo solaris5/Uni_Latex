@@ -64,24 +64,85 @@
 	d.h. wir w\"urden hier beim ersten Argument weitermachen und "mult" aufl\"osen
 	(beim zweiten g\"abe es gerade auch gar nichts mehr zu machen)
 
-	\subsection*{2) Typherleitung}
-	
-	
+	\subsection*{2) Typherleitung - SS14 Beispiel}	
+		\textbf{Typherleitung f\"ur:}
+		\[
+			\{
+			\,mult\;:\;
+			\mathrm{N}\rightarrow\mathrm{N}\rightarrow\mathrm{N},\;
+			one\; : \; \mathrm{N},\,two\;\mathrm{N}\,
+			\vdash \; \lambda n.\,n\,(\, mult \; two\,)\;one\,:\mathrm{N}\rightarrow
+			\mathrm{N}
+			\}
+		\]
+		\textbf{mit Sonderhinweis, dass die Chruch-Numerale in System F den folgenden Typ besitzen:}
+		\[
+			\mathrm{N}\; := \; \forall a.(a\,\rightarrow \, a)\, \rightarrow \, a \, \rightarrow \,a		
+		\]
+	\textbf{Herleitung:}\\
+		
+	%Zeile 5
+	\underline{
+		$(5)\;
+			\Gamma \;\cup \{\,n:\mathrm{N}\,\} \vdash
+			\overbrace{
+			n\,:\,(\,a\,\rightarrow\,a\,)\rightarrow (\,a\,\rightarrow \,a\,)
+			}^{per\;Definition\; =\;\mathrm{N}}
+			\hspace{1cm}
+			\overbrace{
+			mult:\;\mathrm{N}\rightarrow \mathrm{N}\rightarrow \mathrm{N}
+			}^{Ax}
+			\hspace{5mm}
+			\overbrace{
+			two:\;\mathrm{N}
+			}^{Ax}
+		$
+	}\\
+	%Zeile 4
+	\underline{
+		$(4)\;
+			\Gamma \;\cup \{\,n:\mathrm{N}\,\} \vdash 
+			n\,:\,(\,\mathrm{N}\rightarrow \mathrm{N}\,)
+			\rightarrow (\,\mathrm{N}\rightarrow \mathrm{N}\,)
+			\hspace{2cm}
+			mult\;two\;\mathrm{N}\rightarrow \mathrm{N}
+		$
+	}\\
+	%Zeile 3
+	\underline{
+	$	(3)\;
+		\Gamma \; \cup \{\,n:\mathrm{N}\,\}\,
+		\vdash \, n\,(\,mult\;two\,)\,: \mathrm{N}\rightarrow\,\mathrm{N}
+		\hspace{6cm}
+		\;one\; : \mathrm{N} 
 	$
-	\{
-			f		
-	\}
-	$
+	}\\
+	%Zeile 2
+	\underline{
+	$(2)\;
+		\Gamma \; \cup \{\,n:\mathrm{N}\,\}\,
+		\vdash \, n\,(\,mult\;two\,)\;one\; : \mathrm{N}\rightarrow\,\mathrm{N}
+	$\hspace{48mm}}
 	\\
 	%Zeile 1	
-	$
-	\{
-		\,mult\;:\;
-		\mathrm{N}\rightarrow\mathrm{N}\rightarrow\mathrm{N}\rightarrow ,
-		one\; : \; \mathrm{N},\,two\;\mathrm{N}\,
-	\}
+	$	(1)\;
+	\{ 
+		\underbrace{
+			\,mult\;:\;
+			\mathrm{N}\rightarrow\mathrm{N}\rightarrow\mathrm{N},\;
+			one\; : \; \mathrm{N},\,two\;\mathrm{N}\,
+		}_{:=\Gamma}	
 	\vdash \; \lambda n.\,n\,(\, mult \; two\,)\;one\,:\mathrm{N}\rightarrow\mathrm{N}
-	$	
+	$		
+	\\
+	\textbf{Erkl\"arungen:}\\
+	\begin{small}
+	- (1) $\rightarrow_{i}$\\
+	- (2)(3) $\rightarrow_e$\\
+	- in (3) ist $[\,one:\mathrm{N}\,]$ mit Ax fertig\\
+	- in (4) ???\\
+	- (4)(links) $\forall_{e}$ (rechts) $\rightarrow_e$\\
+	\end{small}	
 		
 		
 		
@@ -89,11 +150,7 @@
 		
 		
 		
-		
-		
-		
-		
-	
+$ $\\\\
 \begin{tiny}
 	\copyright\ Joint-Troll-Expert-Group (JTEG) 2015
 \end{tiny}
