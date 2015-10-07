@@ -7,12 +7,31 @@
 	\date{ }
 	\begin{document}
 	\maketitle
-		\textbf{Referenzaufgabe:} \\
+	%----------------------------------%
+	\textbf{Referenzaufgabe:} \\
 		\\
+		\textbf{data List} a = $Nil$ $|$ $Cons$ a \textbf{List} a
 		\begin{align*}
-			snoc\;Nil\;a 			&= Cons\;a\;Nil
-			snoc(Cons\;x\;xs)\;a	&= Cons\;x(snoc\;xs\;a)
+			snoc\;Nil\;a 			&= Cons\;a\;Nil\\
+			snoc(Cons\;x\;xs)\;a	&= Cons\;x\;(snoc\;xs\;a)
 		\end{align*}
+		\begin{align*}
+			Nil + ys 			&= ys\\
+			(Cons\;x\;xs) + ys 	&= Cons\;x\;(xs + ys)
+		\end{align*}
+		\underline{Beweisen sie dass:}\\
+		$\forall e,\;xs,\;ys\\xs+(Cons\;e\;ys) = (snoc\;xs\;e)+ys$ \\\\
+	%----------------------------------%
+	\textbf{Induktionsanfang:}\\\\
+		$xs = Nil$\;\;$\Rightarrow$ Einsetzen und beide Seiten maximal vereinfachen
+	\begin{align*}
+		Nil+(Cons\;e\;ys) 	&= (snoc\;Nil\;e)+ys\\
+			 Cons\;e\;ys	&= (snoc\;Nil\;e)+ys\\
+			 Cons\;e\;ys	&= (Cons e Nil) + ys\\
+			 Cons\;e\;ys	&= Cons\;e (Nil + ys)\\
+			 Cons\;e\;ys	&= Cons\;e\;ys
+	\end{align*}
+		
 	\begin{tiny}
 	\copyright\ Joint-Troll-Expert-Group (JTEG) 2015
 	\end{tiny}
