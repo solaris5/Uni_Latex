@@ -21,8 +21,8 @@
 	\begin{align*}
 		&currentSample(flat\:x) = x			&
 		&discardSample(flat\:x) = flat\:x	\\
-		&currentSample(square\:x\:y)		&
-		&discardSample(square\:x\:y)		
+		&currentSample(square\:x\:y) = x		&
+		&discardSample(square\:x\:y) = square\;y\;x	
 	\end{align*}	
 	\end{fleqn}
 	\textbf{Es soll gelten:}\\
@@ -68,14 +68,17 @@
 				sampler(square\:0\:1)(square\:x\:0)}_{linke\:Seite},\underbrace{flat\:0}_{rechte\:Seite} \:|\: \underbrace{x\in Int}_{von\:oben}\}
 		\]
 	$\rightarrow$ "R ist Bisimulation" hinschreiben, linke Seite aufloesen\\
-	\[ sampler(square\:0\:1)(square\:x\:0) = 0 \]
+	\[ currentSample(\,sampler(square\:0\:1)(square\:x\:0)) = 0 \]
 	$\rightarrow$ wenn hier am Endde kein Term rauskommt, dann koennen wir einfach die \textbf{rechte Seite bei der normalen Funktion} einsetzen und selbige aufloesen:
 	\[ currentSample(flat\;0) = 0 \]
 	$\rightarrow$ sehr gut, die rechten Seiten sind gleich wir sind hier also fertig\\ \\
 	\textbf{zweite Bedingung:}
-		\[discardSample(sampler(square\;1\;0)(square\;0\;x)) = sampler(square\;1\;0)(square\;0\;x)\]
+	\begin{align*}	
+	discardSample(sampler&(square\;1\;0)(square\;0\;x)) \\
+	=& sampler(discardSample (square\;1\;0))(discardSample(square\;0\;x))
+	\end{align*}
 	\textit{das ist doof denn:}
-		\[discardSample(flat 0) = 0\]
+		\[discardSample(square\;x\;0) = discardSample(square\;0\;x)\]
 	\textbf{Schritt 3:}\\
 	\[R' = R \;\cup\;\{\underbrace{sampler(square\:1\:0)(square\:0\:x)}_{aufgeloeste\;2.\;Bedingung},flat\;0\:|\:x\in Int\}\]	
 	wir muessen jetzt zeigen:
