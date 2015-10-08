@@ -37,8 +37,9 @@
 			- Buchstabe hinter $\lambda $ wegnehmen\\
 			- Term von der respektiven Stelle hinten entfernen\\
 			- alle Vorkommen des Buchstabens mit dem Term ersetzen\\
-			- idealerweise bei mehreren $\lambda$ in einem Term \textbf{immer} verschiedene Buchstaben verwenden
-	\section{SS14-Probeklausur Beispielaufgabe}
+			- idealerweise bei mehreren $\lambda$ in einem Term \textbf{immer} verschiedene Buchstaben verwenden\\
+			- wenn nicht genug Terme zum Aufl\"osen von $\lambda$ vorhanden sind, nicht damit anfangen, also z.B. bei $pred\;\lambda\,f\,a\,.\,fa\;one$ nicht one f\"ur f einsetzen sondern $pred$ aufl\"osen
+	\section{SS15Probeklausur Beispielaufgabe}
 	\subsection*{1) Reduktion}
 	\subsubsection*{a) Normal/Lazy}
 		\begin{align*}
@@ -52,7 +53,7 @@
 			pow2\;three\;	&=\;	pow2\; (\, \lambda f\,a\, .\,f\,(\,f\,(\,f\;a\,) \,)\\
 							&=\;	(\, \lambda f\,a\, .\,f\,(\,f\,(\,f\;a\,) \,)(mult\;two)\;one\\
 							&=\;	(\, \lambda f\,a\, .\,f\,(\,f\,(\,f\;a\,) \,)(mult\;\lambda g\,b\, .\,g\,(\,g\;b\,))\;one\\
-							&=\;	(\, \lambda f\,a\, .\,f\,(\,f\,(\,f\;a\,) \,)(mult\;\lambda g\,b\, .\,g\,(\,g\;b\,))\;(\lambda h\,c\, .\,h\;c)\\
+							&=\;	(\, \lambda f\,a\, .\,f\,(\,f\,(\,f\;a\,) \,)(mult\;\lambda g\,b\, .\,g\,(\,g\;b\,))\;(\lambda h\,c\, .\,h\;c)
 		\end{align*}
 	kleine Anmerkung hierzu noch:
 	\[
@@ -86,7 +87,7 @@
 		$(5)\;
 			\Gamma \;\cup \{\,n:\mathrm{N}\,\} \vdash
 			\overbrace{
-			n\,:\,\forall a\,.',(\,a\,\rightarrow\,a\,)\rightarrow (\,a\,\rightarrow \,a\,)
+			n\,:\,\forall a\,.\,(\,a\,\rightarrow\,a\,)\rightarrow (\,a\,\rightarrow \,a\,)
 			}^{per\;Definition\; =\;\mathrm{N}}
 			\hspace{8mm}
 			\overbrace{
@@ -121,7 +122,7 @@
 	\underline{
 	$(2)\;
 		\Gamma \; \cup \{\,n:\mathrm{N}\,\}\,
-		\vdash \, n\,(\,mult\;two\,)\;one\; : \mathrm{N}\rightarrow\,\mathrm{N}
+		\vdash \, n\,(\,mult\;two\,)\;one\; : \mathrm{N}
 	$\hspace{48mm}}
 	\\
 	%Zeile 1	
