@@ -80,7 +80,9 @@
 	\textit{das ist doof denn:}
 		\[discardSample(square\;x\;0) = discardSample(square\;0\;x)\]
 	\textbf{Schritt 3:}\\
-	\[R' = R \;\cup\;\{\underbrace{sampler(square\:1\:0)(square\:0\:x)}_{aufgeloeste\;2.\;Bedingung},flat\;0\:|\:x\in Int\}\]	
+	\[R' = R \;\cup\;\{\underbrace{
+	sampler(discardSample (square\;1\;0))(discardSample(square\;0\;x))	
+	}_{aufgeloeste\;2.\;Bedingung},square\;x\;0\:|\:x\in Int\}\]	
 	wir muessen jetzt zeigen:
 	\[
 		currentSample(\underbrace{sampler(square\:1\:0)(square\:0\:x)}_{hier\;=\;0}) = \underbrace{currentSample(flat\;0)}_{hier\;=\;0}
@@ -93,9 +95,9 @@
 	und fertig!\\\\
 \section*{Sonstiges:}
 	Eine Relation $\mathrm{R}\;\subset\;A^{\omega}\;$x$\;A^{\omega}$ heisst Bisimulation, wenn f\"ur
-	alle $(s,t)$ $\in\; \mathrm{R}$ gilt: \\
-	\noindent\hspace{1cm} hd s = hd t\\
-	\noindent\hspace{1cm} (tl\;s)\;R\;(tl\;t)\\\\\\\\
+	alle $(s,s')$ $\in\; \mathrm{R}$ gilt: \\
+	\noindent\hspace{1cm} currentSample s = currentSample s' \;\;\;\; weil Int zur\"uck\\
+	\noindent\hspace{1cm} (discardSample\;s)\;R\;(discardSample\;t)\;\;\;\; weil wieder Signal\\\\\\\\
 
 	Wenn R eine Bisimulation ist, dann gilt $\mathrm{R}\;\subseteq\;id$ , d.h.
 	\[
