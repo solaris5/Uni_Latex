@@ -11,9 +11,9 @@ single: all
 	
 
 %.continuous: %.pdf
-	@command ||: latexmk -jobname=$(@:%.continuous=%) -pvc -pdf $(@:%.continuous=%).tex
+	latexmk -quiet -jobname=$(@:%.continuous=%) -pvc -pdf $(@:%.continuous=%).tex > "\dev0"
 
 %.pdf: %.tex
-	@command ||: latexmk -jobname=$(@:%.pdf=%) -pdf $<
+	latexmk -quiet -jobname=$(@:%.pdf=%) -pdf $<
 
 .PHONY: all continuous cleanup single
