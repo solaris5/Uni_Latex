@@ -1,20 +1,23 @@
 all: Konfluenz.pdf Koinduktion_reduktion.pdf Strukturelle_Induktion.pdf Polynomordnung.pdf SystemF.pdf PumpingLemma.pdf
 
-continuous: $(PDF).continuous 
+continuous: $(PDF).continuous
 
-clean: cleanup all
+clean: cleanup rmpdf all
+
+rmpdf:
+	@-rm -f *.pdf 	
 
 cleanup: 
-	-rm -f *.aux *.fdb_latexmk *.fls *.log *.pdf
+	@-rm -f *.aux *.fdb_latexmk *.fls *.log
 
 single: all
-	-pdftk Polynomordnung.pdf Konfluenz.pdf SystemF.pdf Koinduktion_reduktion.pdf Strukturelle_Induktion.pdf PumpingLemma.pdf cat output ThProgCheatsheet.pdf
+	@-pdftk Polynomordnung.pdf Konfluenz.pdf SystemF.pdf Koinduktion_reduktion.pdf Strukturelle_Induktion.pdf PumpingLemma.pdf cat output ThProgCheatsheet.pdf
 	
 
 %.continuous: %.pdf
-	latexmk -quiet -jobname=$(@:%.continuous=%) -pvc -pdf $(@:%.continuous=%).tex
+	@latexmk -quiet -jobname=$(@:%.continuous=%) -pvc -pdf $(@:%.continuous=%).tex
 
 %.pdf: %.tex
-	latexmk -quiet -jobname=$(@:%.pdf=%) -pdf -halt-on-error $< 1>/dev/null
+	@latexmk -quiet -jobname=$(@:%.pdf=%) -pdf -halt-on-error $< 1>/dev/null
 
-.PHONY: all continuous cleanup single
+.PHONY: all continuous cleanup single clean rmpdf
