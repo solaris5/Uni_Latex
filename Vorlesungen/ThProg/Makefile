@@ -2,6 +2,8 @@ all: Konfluenz.pdf Koinduktion_reduktion.pdf Strukturelle_Induktion.pdf Polynomo
 
 continuous: $(PDF).continuous 
 
+clean: cleanup all
+
 cleanup: 
 	-rm -f *.aux *.fdb_latexmk *.fls *.log *.pdf
 single: all
@@ -9,9 +11,9 @@ single: all
 	
 
 %.continuous: %.pdf
-	latexmk -jobname=$(@:%.continuous=%) -pvc -pdf $(@:%.continuous=%).tex
+	@command ||: latexmk -jobname=$(@:%.continuous=%) -pvc -pdf $(@:%.continuous=%).tex
 
 %.pdf: %.tex
-	latexmk -jobname=$(@:%.pdf=%) -pdf $<
+	@command ||: latexmk -jobname=$(@:%.pdf=%) -pdf $<
 
 .PHONY: all continuous cleanup single
