@@ -4,6 +4,9 @@ continuous: $(PDF).continuous
 
 cleanup: 
 	-rm -f *.aux *.fdb_latexmk *.fls *.log
+single: all
+	-pdftk Polynomordnung.pdf Konfluenz.pdf SystemF.pdf Koinduktion_reduktion.pdf Strukturelle_Induktion.pdf cat output newfile.pdf
+	
 
 %.continuous: %.pdf
 	latexmk -jobname=$(@:%.continuous=%) -pvc -pdf $(@:%.continuous=%).tex
@@ -11,4 +14,4 @@ cleanup:
 %.pdf: %.tex
 	latexmk -jobname=$(@:%.pdf=%) -pdf $<
 
-.PHONY: all continuous cleanup
+.PHONY: all continuous cleanup single
