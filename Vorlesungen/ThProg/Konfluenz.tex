@@ -2,6 +2,7 @@
 	\usepackage{amsmath}
 	\usepackage{nccmath}
 	\DeclareMathSizes{10}{10}{10}{10}
+	\newcommand{\xhspace}[0]{\noindent\hspace*{5mm}}
 	\setlength{\parindent}{0pt}
 	\title{Konfluenz}
 	\date{ }
@@ -11,7 +12,24 @@
 			Ein stark normalisierendes und lokal Konfluentes Termersetzungssystem (TES) ist konfluent.
 		\subsection*{Critical Pair Lemma:}
 			Ein TES ist lokal konfluent, wenn alle kritischen Paare zusammenf\"uhrbar sind.
-		\section{Matching Table:}
+			
+		\section*{Allgemeines Vorgehen:}
+		Alle Regeln m\"ussen gegen alle anderen gematched werden um lokale Konfluenz zu 
+		zeigen, f\"ur das Gegenteil reicht also logischerweise \textbf{ein} nicht- 
+		zusammenf\"urbares Paar.\\\\
+		
+		\textbf{F\"ur Regelpaar (x)(y):}\\
+		$\rightarrow$ $l_1$ = linke Seite von x\\
+		$\rightarrow$ $l_2$ = linke Seite von y (falls gleiche Variablennamen selbige umbennen)\\
+		$\rightarrow$ $l_1$ so substituieren, dass Regel y angewendet werden kann (aka MGU finden)\\
+		$\rightarrow$ $l_1$ sollte der MGU = $l_2$ sein $\rightarrow$ triviales Paar\\
+		$\rightarrow$ beide Regeln 1x anwenden und sehen ob man die entstehenden Terme wieder zusammen bringen kann 
+		\textit{(durch Anwendung beliebiger Regeln des TES)}\\\\
+		
+		Triviale Paare muessen nicht gezeigt werden. Ein Paar kann bereits nach Anwendung beider Regeln wieder gleich sein
+		(z.B. $\neg\neg\neg x$ ). So ein Paar ist automatisch zusammenf\"uhrbar, aber dennoch der Definition nach
+		\textbf{\underline{kein}} triviales Paar.
+		\section*{Beispiel Lokale Konfluenz zeigen:}
 			Formeln:
 			\begin{align}
 				x \Uparrow ( y \Uparrow z) & \rightarrow_{0}
@@ -20,18 +38,20 @@
 				x \Downarrow ( x \Downarrow y ) & \rightarrow_0
 					\; x \Downarrow y
 			\end{align}
-			- alle Regeln m\"ussen gegen alle anderen gematched werden 
-			daher f\"ur \"ubersichtlichkeit:\\ \\
-			\begin{tabular}{l c r}
-				  & 1 & 2 \\
-				1 & ? & ? \\
-				2 & ? & ? \\
-			\end{tabular}		
-		
-		
-		
-		
-		
+			
+		\textbf{(1)(1)}
+			\begin{align*}
+				l_1 &= x \Uparrow ( y \Uparrow z)  \\
+				l_2 &= u \Uparrow ( v \Uparrow w)  \\
+			\end{align*}
+		\textbf{damit:}
+			\[
+				mgu = [\;y \mapsto u\,,\;z \mapsto (\,u;\Uparrow\;w\,)\;]
+			\]
+		\textbf{und die mit dem mgu substituierte Seite $l_1$:}
+			\[
+				l_1\omega = u \Uparrow 
+			\]
 		
 		
 		
