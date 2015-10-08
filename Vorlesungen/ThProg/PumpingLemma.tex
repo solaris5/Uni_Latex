@@ -1,0 +1,64 @@
+	\documentclass{article}
+	\usepackage{amsmath}
+	\usepackage{ amssymb } % >= as \geq
+	\usepackage{nccmath}
+	\usepackage{upgreek}
+	%New Commands
+	\newcommand{\xhspace}[0]{\noindent\hspace*{5mm}}
+	\DeclareMathSizes{10}{10}{10}{10}
+	\setlength{\parindent}{0pt}
+	\title{Pumping Lemma f\"ur Regul\"are Sprachen}
+	\date{ }
+	\begin{document}
+	\section*{Pumping Lemma f\"ur Regul\"are Sprachen}
+	%\maketitle
+	%----------------------------------%
+	Konkret geht es in diesem Beispiel um eine Sprache die alle ge\"offneten Klammern auch wieder schlie$\upbeta$en soll, oder allgemeiner, um eine Sprache die sich eine Anzahl merken muss.\\\\	
+	\textbf{'L' ist regul\"ar wenn:}
+		\[		
+			\forall l \geq 1\;.\, \exists w \in L\;mit\; |w|\geq l
+		\]
+	\textbf{sodass:}\\
+		\xhspace	$\forall$ uvz \\
+	\textbf{mit:}\\ 
+		\xhspace	w=uvz\\
+		\xhspace	$|$v$|$ $\geq$ 1\\
+		\xhspace	$|$uv$|$ $\leq$ l\\
+	\textbf{gilt:}\\
+		\xhspace	u$v^{k}$z $\notin$ L \\ \\
+	\textbf{Beweis, dass 'L' \underline{NICHT} regul\"ar ist}\\\\
+		Sei l $\geq$ 1 gegeben, w\"ahle:
+		\[ 
+			w\;= 
+				\underbrace{(\,(\,(\,...\,(}_{l+k\;mal}
+				\hspace{10mm}
+				\;a
+				\hspace{1cm}
+				\underbrace{,\,b\,)\,,b)\,...\,)}_{l+k\;mal}
+				\hspace{10mm}
+				\in L
+		\]
+		k als feste Zahl w\"ahlen, z.B. 10:
+		\[ 
+			w\;= 
+				\underbrace{(\,(\,(\,...\,(}_{l+10\;mal}
+				\hspace{10mm}
+				\;a
+				\hspace{1cm}
+				\underbrace{,\,b\,)\,,b)\,...\,)}_{l+10\;mal}
+				\hspace{10mm}
+				\in L
+		\]
+		\textbf{dann gilt:}\\\\
+		\noindent \hspace*{1cm}$\forall$ uvz \hspace{5mm}\textbf{mit}\hspace{5mm}w = uvz
+		\\\\
+		\noindent \hspace*{1cm}u = $(^k$ \\ \\
+		\noindent \hspace*{1cm}v = $(^m$\\ \\
+		\noindent \hspace*{1cm}z = $(^{[l+10-k-m]}$
+		\hspace{3mm}a\hspace{3mm},b\,)\,,\,b\,)\,...\,,\,b\,)\\\\
+		\textbf{dann w\"ahlenn wir:}\\\\
+			\noindent \hspace*{1cm}	w' = u$v^0$z = uz $\notin$ L\\\\
+		Denn es gehen [k+l+10-k-m = 10+l+m] Klammern auf und nur [l+10] Klammern zu. 
+		Da m$\geq$ ist [10+l+m $>$ 10+l].
+		D.h. w' ist nicht in 'L' und 'L' damit nicht regul\"ar.
+\end{document}
