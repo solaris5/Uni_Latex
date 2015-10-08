@@ -3,9 +3,9 @@ all: Konfluenz.pdf Koinduktion_reduktion.pdf Strukturelle_Induktion.pdf Polynomo
 continuous: $(PDF).continuous 
 
 cleanup: 
-	-rm -f *.aux *.fdb_latexmk *.fls *.log
+	-rm -f *.aux *.fdb_latexmk *.fls *.log *.pdf
 single: all
-	-pdftk Polynomordnung.pdf Konfluenz.pdf SystemF.pdf Koinduktion_reduktion.pdf Strukturelle_Induktion.pdf cat output newfile.pdf
+	-pdftk Polynomordnung.pdf Konfluenz.pdf SystemF.pdf Koinduktion_reduktion.pdf Strukturelle_Induktion.pdf cat output ThProgCheatsheet.pdf
 	
 
 %.continuous: %.pdf
