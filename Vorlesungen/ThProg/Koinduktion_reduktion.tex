@@ -49,7 +49,7 @@
 		\begin{align*}
 			currentSample(sampler\:t\:s) = \:&if\:(currentSample\:\:t>0)\\
 											&then\:(currentSample\:\:s)\\
-											&else\:(flat\:\:0)
+											&else\:0
 		\end{align*}
 	\end{fleqn}
 	\textbf{sowie zweite Formel zum Aufteilen verwenden:}
@@ -73,7 +73,7 @@
 	\[ currentSample(flat\;0) = 0 \]
 	$\rightarrow$ sehr gut, die rechten Seiten sind gleich wir sind hier also fertig\\ \\
 	\textbf{zweite Bedingung:}
-		\[discardSample(sampler(square\:1\:0)(square\:0\:x)) = sampler(square\:1\:0)(square\:0\:x)\]
+		\[discardSample(sampler(square\;1\;0)(square\;0\;x)) = sampler(square\;1\;0)(square\;0\;x)\]
 	\textit{das ist doof denn:}
 		\[discardSample(flat 0) = 0\]
 	\textbf{Schritt 3:}\\
