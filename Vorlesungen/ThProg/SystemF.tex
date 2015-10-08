@@ -86,9 +86,9 @@
 		$(5)\;
 			\Gamma \;\cup \{\,n:\mathrm{N}\,\} \vdash
 			\overbrace{
-			n\,:\,(\,a\,\rightarrow\,a\,)\rightarrow (\,a\,\rightarrow \,a\,)
+			n\,:\,\forall a\,.',(\,a\,\rightarrow\,a\,)\rightarrow (\,a\,\rightarrow \,a\,)
 			}^{per\;Definition\; =\;\mathrm{N}}
-			\hspace{1cm}
+			\hspace{8mm}
 			\overbrace{
 			mult:\;\mathrm{N}\rightarrow \mathrm{N}\rightarrow \mathrm{N}
 			}^{Ax}
@@ -104,7 +104,7 @@
 			\Gamma \;\cup \{\,n:\mathrm{N}\,\} \vdash 
 			n\,:\,(\,\mathrm{N}\rightarrow \mathrm{N}\,)
 			\rightarrow (\,\mathrm{N}\rightarrow \mathrm{N}\,)
-			\hspace{2cm}
+			\hspace{25mm}
 			mult\;two\;\mathrm{N}\rightarrow \mathrm{N}
 		$
 	}\\
@@ -136,22 +136,11 @@
 	$		
 	\\
 	\textbf{Erkl\"arungen:}\\
-	\begin{small}
-	- (1) $\rightarrow_{i}$\\
-	- (2)(3) $\rightarrow_e$\\
-	- in (3) ist $[\,one:\mathrm{N}\,]$ mit Ax fertig\\
-	- in (4) $\forall _e$\\
-	- (4)(links) $\forall_{e}$ (rechts) $\rightarrow_e$\\
-	\end{small}	
-	\\
+	(1) $\rightarrow_{i}$\\
+	(2)(3) $\rightarrow_e$\\
+	(3)(rechts)$[\,one:\mathrm{N}\,]$ mit Ax fertig\\
+	(4) $\forall _e$ (wir wissen, dass N : $(a->a)->a->a$ ist, und dass \{n : N ist\}; damit n hinten also mit dem Kontex aufgeht muss es von der Form $(a->a)->a->a$ sein)\\
+	(4)(links) $\forall_{e}$ (rechts) $\rightarrow_e$\\\\
 	\textbf{Eine \"Ubersicht der Regeln findet sich in den \"Ubungsfolien oder dem SS14 Spickzettel!}
-		
-		
-		
-		
-		
-$ $\\\\
-\begin{tiny}
-	\copyright\ Joint-Troll-Expert-Group (JTEG) 2015
-\end{tiny}
+	
 \end{document}
