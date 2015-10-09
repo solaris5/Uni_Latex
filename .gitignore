@@ -3,6 +3,7 @@
 *.out
 *.pdf
 *.log
+*.dvi
 *.fls
 *.fdb_latexmk
 .*.swp
