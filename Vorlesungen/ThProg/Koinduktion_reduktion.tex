@@ -71,7 +71,8 @@
 	\[ currentSample(\,sampler(square\:0\:1)(square\:x\:0)) = 0 \]
 	$\rightarrow$ wenn hier am Ende kein Term rauskommt, dann koennen wir einfach die \textbf{rechte Seite bei der normalen Funktion} einsetzen und selbige aufloesen:
 	\[ currentSample(flat\;0) = 0 \]
-	$\rightarrow$ sehr gut, die rechten Seiten sind gleich wir sind hier also fertig\\ \\
+	$\rightarrow$ sehr gut, die rechten Seiten sind gleich wir sind hier also fertig\\\\
+	\textbf{\underline{WICHTIG} Jetzt das selbe noch mit discardSample()!}\\\\
 	\textbf{zweite Bedingung:}
 	\begin{align*}	
 	discardSample(sampler&(square\;1\;0)(square\;0\;x)) \\
@@ -82,15 +83,15 @@
 	\textbf{Schritt 3:}\\
 	\[R' = R \;\cup\;\{\underbrace{
 	sampler(discardSample (square\;1\;0))(discardSample(square\;0\;x))	
-	}_{aufgeloeste\;2.\;Bedingung},square\;x\;0\:|\:x\in Int\}\]	
+	}_{aufgeloeste\;2.\;Bedingung},discardSample(square\;x\;0\,)\:|\:x\in Int\}\]	
 	wir muessen jetzt zeigen:
 	\[
-		currentSample(\underbrace{sampler(square\:1\:0)(square\:0\:x)}_{hier\;=\;0}) = \underbrace{currentSample(flat\;0)}_{hier\;=\;0}
+		\underbrace{currentSample(sampler(square\:1\:0)(square\:0\:x)}_{currentSample(\,x\;0\,)}) = \underbrace{currentSample(square\;0\,x)}_{selbes\;wie\;rechts}
 	\]
 	passt also, jetzt wie oben auch zweite Funktion:
 	\[
 		discardSample(sampler(square\:1\:0)(square\:0\:x)) = \underbrace{sampler(square\:1\:0)(square\:0\:x)}_{wieder\;linke\;Seite\;in\;R'}\]\[
-		discardSample(flat\;0) = \underbrace{flat\;0}_{wieder\;rechte\;Seite}
+		discardSample(\,square\;x\;0\,) = \underbrace{discardSample(\,square\;0\;x\,)}_{wieder\;rechte\;Seite}
 	\]
 	und fertig!\\\\
 \section*{Sonstiges:}
