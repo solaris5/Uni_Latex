@@ -1,4 +1,4 @@
-# Nur idioten benutzen die SampleCheatsheets! Sie sind zur Übersicht und entsprechen mitunter nicht dam aktuelle Stand!
+# Nur Idioten benutzen die SampleCheatsheets! Sie sind zur Übersicht und entsprechen mitunter nicht dem aktuellen Stand!
 
 # Richtige Benutzung:
 
