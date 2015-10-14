@@ -1,0 +1,43 @@
+%RK Klausur Loesungsversuch (faui2k13)
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{epsf} 
+\DeclareMathSizes{10}{10}{10}{10}
+\setlength{\parindent}{0pt}
+\title{Klausur M\"arz 2015}
+\begin{document}
+	\maketitle
+	\section{Allgemeine Fragen}
+		\subsection{FTP}
+			\textbf{a)}\\
+				- Verschiedene TCP-Verbinndungen f\"ur Daten\"ubertragung und Streuerung/Befehle\\
+				- Steuerung w\"ahrend Daten\"ubertragen m\"oglich\\
+			\textbf{b)}\\
+				- im Aktive Mode initialisiert der Server die Datenverbinndung zum Client nach Anfrage\\
+				- im Passive Mode tun dies der Client selbst, das hat den Vorteil, dass die Firewall des Clients dann wahrscheinlich nicht die Verbinndung des Servers blockt\\
+		\subsection{Adressierung}
+			\textbf{a)}\\
+				- ARP \\
+				- BROTKAST an alle Ger\"ate mit der IP des gesuchten Ger\"ats als Payload\\
+				- gesuchtes Ger\"at antwortet mit eigener MAC\\
+				- Schicht 2 (Sicherungsschicht)\\
+			\textbf{b)}\\
+				- Nein, ARP ist bereits ein Gegenbeispiel\\
+			\textbf{c)}\\
+				Ja, da beide im gleichen Subnetz sind
+				\begin{align*}
+					&HostB\;00001010\;00000000\;000000|01\;00000100 \\
+					&HostC\;00001010\;00000000\;000000|11\;00001000
+				\end{align*}
+				Teilnehmer: $(2^10)$-2 = 1022
+			\textbf{d)}\\
+				- Vorteil: Auch bitfehler im IP-Header k\"onnen erkannt werden\\
+				- Nachteil: Verletzung des Schichtenprinzips
+		\subsubsection{Leitungskodierung}
+			\textbf{a)}\\
+				- selbsttaktend: Empfänger kann Sendertakt aus Signal gewinnen \\
+				- gleichstromfrei: kein Gleichanteil im elektrischen Signal \\
+			\textbf{b)}\\
+				\epsfbox{test.eps}
+				
+\end{document}
