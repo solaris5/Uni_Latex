@@ -5,8 +5,8 @@ local ref_medium
 local trigger = true
 function widget:GetInfo()
    return {
-      name         = "Selecteion Priority",
-      desc         = "TEST",
+      name         = "Selection Priority",
+      desc         = "Sorts Units by Priority (atackunit>builder/commander>buildings)",
       author       = "Sheppy",
       date         = "2015",
       license      = "PD", -- should be compatible with Spring
@@ -18,17 +18,33 @@ end
 function widget:CommandNotify(cmdID, cmdParams, cmdOptions)
 if trigger then
 ref_medium = {
+--arm
 "armcom",
 "armaca",
-"armacv",
-"armack",
 "armca",
-"armck",
+"armacv",
 "armcv",
+"armack",
+"armck",
 "armcs",
-"armacsub"
+"armacs",
+"armacsub",
+"armch",
+"corch",
+--core
+"coracs",
+"corcom",
+"coraca",
+"coracv",
+"corack",
+"corca",
+"corck",
+"corcv",
+"corcs",
+"coracsub"
 }
 ref_low = {
+--arm
 "armaap",
 "armalab",
 "armap",
@@ -70,7 +86,58 @@ ref_low = {
 "armuwmme",
 "armuwmmm",
 "cmgeo",
-"asubpen"
+"asubpen",
+--core
+"coraap",
+"coralab",
+"corap",
+"coradvsol",
+"coravp",
+"corarad",
+"coralab",
+"corbrtha",
+"corckfus",
+"corclaw",
+"corestor",
+"corfmkr",
+"corfus",
+"corlab",
+"corjam",
+"cormakr",
+"cormex",
+"cormoho",
+"cornanotc",
+"corrad",
+"corsolar",
+"cortide",
+"corvp",
+"corwin",
+"aafus",
+"amgeo",
+"coruwfus",
+"coreyes",
+"corason",
+"corasy",
+"corch",
+"corhp",
+"cormmkr",
+"corsy",
+"corgeo",
+"coruwadves",
+"corshltx",
+"coruwmex",
+"coruwmme",
+"coruwmmm",
+"cmgeo",
+"asubpen",
+"armhp",
+"armllt",
+"armhlt",
+"armjamt",
+"corhp",
+"corllt",
+"corhlt",
+"corjamt"
 }
 Spring.Echo("Done.")
 trigger = false
