@@ -1,6 +1,6 @@
-#Nur idioten benutzen die SampleCheatsheets! Sie sind zur Übersicht und entsprechen mitunter nicht dam aktuelle Stand!\n
+#Nur idioten benutzen die SampleCheatsheets! Sie sind zur Übersicht und entsprechen mitunter nicht dam aktuelle Stand!
 
-#Richtige Benutzung:\n
+#Richtige Benutzung:
 'git clone https://github.com/FAUSheppy/Uni_Latex'\n
 'git pull' (innerhalbt des Ordners der durch Git-Clone entstanden ist) \n
 ...um das Repro zu updaten (was ihr machen solltet bevor ihr die Makefiles verwendet!)\n
