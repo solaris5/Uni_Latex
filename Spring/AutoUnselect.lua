@@ -22,10 +22,11 @@ function widget:CommandNotify(cmdID, cmdParams, cmdOptions)
 	local medium = {}
 	local high = {}
 	local deselect = 0
-	local a = Spring.GetModKeyState() --alt ctrl ? shift , discard all but alt
 	--do nothing if CTRL is pressed
-	Spring.Echo(Spring.GetModKeyState())
-	if a then return end
+	local a,b,c,d = Spring.GetModKeyState() --alt ctrl ? shift , discard all but alt
+	--Spring.Echo(Spring.GetModKeyState())
+
+	if b then return end
 	--iterate Selection
 	for i=1,200 do
 		if selected[i] == nil then break end
