@@ -11,7 +11,7 @@ cleanup:
 	@-rm -f *.aux *.fdb_latexmk *.fls *.log
 
 single: all
-	@-pdftk Polynomordnung.pdf Konfluenz.pdf SystemF.pdf Koinduktion_reduktion.pdf Strukturelle_Induktion.pdf PumpingLemma.pdf cat output ThProgCheatsheet.pdf
+	@-pdfunite Polynomordnung.pdf Konfluenz.pdf SystemF.pdf Koinduktion_reduktion.pdf Strukturelle_Induktion.pdf PumpingLemma.pdf ThProgCheatsheet.pdf
 	
 
 %.continuous: %.pdf
