@@ -1,13 +1,16 @@
 %RK Klausur Loesungsversuch (faui2k13)
+%compile with: latexmk -pdf $Dateinname
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{hyperref}
 %\usepackage{epsf}
 %tkitz stuff
 \usepackage{tikz}
 \usepackage{listings}
 \DeclareMathSizes{10}{10}{10}{10}
 \setlength{\parindent}{0pt}
-\title{Klausur M\"arz 2015}
+\title{Klausur M\"arz 2015 - L\"osungsvorschlag"}
+\author{L\"o"sungen: faui2k13, Latexversion: Sheppy}
 \begin{document}
 	\maketitle
 	\section{Allgemeine Fragen}
@@ -158,11 +161,33 @@ public class TCPFIN extends base {
 				\end{tikzpicture}
 			\subsubsection{Minimal aufspannender Baum}
 				\begin{tabular}{| l | c | c | c | c | c |}
-					\hline
-					S	&	N'	&	D(A),p(A)	&	D(B),p(B)	&	D(C),p(C)	&	D(P),p(P) 	\\ \hline
-					test&test	&test			&test			&test			&test			\\ \hline
+																								\hline
+					N'		&	D(A),p(A)	&	D(B),p(B)	&	D(C),p(C)	&	D(P),p(P) 	\\ \hline
+					S		&	1S	&		4S		&				&				  		\\ \hline
+					SA		&	1S	&		3A		&				&	9A					\\ \hline
+					SAB		&	1S	&		3A		&	5B			&	7B					\\ \hline
+					SABC	&	1S	&		3A		&	5B			&	6C					\\ \hline
 				\end{tabular}
-			
+			\subsection{Medienzugriff}
+				\textbf{a)}\\ \\
+					\begin{tabular}{|l|l|l|}
+						\hline
+						Zeit (in Bit-Zeiten)	&	Ereignis			& Erkl\"a"rung (nicht gefordert)	\\ \hline
+						t = 0		&	A und B beginnen das Senden		&									\\ \hline
+						t = 225 	&	A und B erkennen Kollision		&	$+=d_{prop}$					\\ \hline
+						t = 273		&	Ende des Jam-Signals			&	$+=d_{jam}$						\\ \hline
+						t = 498		&	letztes Bit kommt zu A			&	$+=d_{prop}$					\\ \hline
+						t = 594		&	A beginnt mit \"U"bertragung	&	$+=d_{wait}$					\\ \hline
+						t = 785		&	B \"u"berprüft ob Kanal frei ist&	$273+d_{back}$ Kanal-\"Uberpr\"ufung von 785-881	\\ \hline
+						t = 1427	&	B beginn mit \"Ubertragung"		&	$1331$ (letztes Bit von a) + $96 d_{wait}$			\\ \hline
+					\end{tabular}\\ \\ \\
+				\textbf{b)}\\
+					Nein denn Rahmengr\"osse $<=$ Backoffgr\"osse" und ein Konten geht immer in Backoff mit Faktor 1 und der andere mit 0.
+					\\\\\\
+					
+	\begin{small}
+		Diese Sammlung bassiert auf dem RK L\"osungspad des faui2k13 (\url{https://pad.stuve.fau.de/p/RK}) und enthält möglicherweise Fehler!
+	\end{small}
 			
 			
 			
