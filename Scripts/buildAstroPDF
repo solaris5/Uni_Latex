@@ -1,0 +1,28 @@
+#!/bin/bash
+echo "Stept 1/4 Downloading"
+for i in {1..9};
+	do 
+		wget -nv "http://hydrus.sternwarte.uni-erlangen.de/~wilms/teach/intro1516/page000${i}.svg" 
+	done
+for i in {10..99};
+	do 
+		wget -nv "http://hydrus.sternwarte.uni-erlangen.de/~wilms/teach/intro1516/page00${i}.svg"
+	done
+for i in {100..219};
+	do
+		wget -nv "http://hydrus.sternwarte.uni-erlangen.de/~wilms/teach/intro1516/page0${i}.svg"
+	done
+
+echo "Step 2/4 : Converting.."
+for file in $PWD/*.svg;
+	do 
+		inkscape "$file" -d 1200 -A "${file%.svg}.pdf" 
+	done
+
+echo "Step 3/4 : Merging PDFs.."
+pdfunite *.pdf AstroFull.pdf
+echo "Step 4/4 : Compressing..."
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dBATCH  -dQUIET -sOutputFile=output.pdf input.pdf
+rm page*.pdf
+rm AstroFull.pdf
+echo "Done!"
