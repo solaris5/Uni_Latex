@@ -1,0 +1,103 @@
+%RK Klausur Loesungsversuch (faui2k13)
+%compile with: latexmk -pdf $Dateinname
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{listings}
+\DeclareMathSizes{10}{10}{10}{10}
+\setlength{\parindent}{0pt}
+\title{Klausur September 2014 - L\"osungsvorschlag"}
+\author{L\"o"sungen: faui2k13, Latexversion: Sheppy}
+\begin{document}
+	\maketitle
+	\section{Allgemeine Fragen}
+			\textbf{a)}\\
+				- Ausbreitungsverz\"ogerung\\
+				- Warteschlangenverz\"ogerung\\
+				- Bearbeitungsverz\"ogerung\\
+				- \"Ubertragungsverz\"ogerung\\\\
+			\textbf{b)}\\
+				- Warteschlange voll\\
+				- Physikalische probleme\\\\
+			\textbf{c)}\\
+				Damit soll verhindert werden, dass eine Station die \"Ubertragung eines kurzen Rahmens 
+				beendet, bevor sein erstes Bit \"uberhaupt das andere Ende des Kabels erreicht,wo er dann 
+				vielleicht mit einem anderen Frame kollidiert. \\\\
+			\textbf{d)}\\
+				- Wegen m\"oglichem ACK – Verlust /ACK – Verz\"ogerung/alternativ: Damit immer das ACK für 
+				das letzte erfolgreiche Paket geschickt werden kann\\\\
+			\textbf{e)}\\
+				- Header mit fester L\"ange (für schnelles Weiterleiten)\\
+				- keine Fragmentierung (wird einfach verworfen falls $>$ MTU)\\
+				- keine Pr\"ufsumme (Fehlererkennung in h\"oheren Schichten)\\
+				- zusätzliche Optionen außerhalb als nächster Header\\
+				- zustandslose Autokonfiguration\\\\
+			\textbf{f)}\\
+				- Kollisionserkennung würde 2. Antenne ben\"otigen, die während des Sendens empf\"angt 
+				\noindent\;\;\;$\Rightarrow$ schwieriger, teurer \\
+				-  Hidden-Terminal-Problem wahrscheinlicher\\\\
+			\textbf{g)}\\
+				- Nachteil: ineffizient (weil die Daten mitunter nur immer mal wieder auf den Kanälen
+				 gesendet werden)\\
+				- Vorteil: keine Kollisionen//Echtzeitfaehig\\\\
+			\textbf{h)}\\
+				- ICMP erkennt zwar einige Fehlerzust\"ande, macht aber IP zu keinem zuverl\"assigen 
+				Protokoll\\
+			\textbf{i)}\\
+				- Es geht nur um die Weiterleitung von lokalem in globales Netz, daher nur Quelladresse
+				 (IP-Header) und -port (TCP-Header). Auszerdem m\"ussen die beiden Checksummen neu
+				  berechnet werden, daher 4 Punkte.\\
+	\section{Transportschicht}
+		\subsection{Schiebefensterprotokoll}	
+			\textbf{a)}\\
+				- Ja, denn bei Go-Back-N w\"urde keine ACK3 gesendet werden, bevor nicht eine ACK2 
+				gesendet wurde.\\
+			\textbf{b)}\\
+				- A sendet Pakete, kann also erst das Fenster schieben wenn ACKs ankommen. B empf\"angt,
+				 verschiebt also sein Fenster wenn Pakete ankommen.
+				\begin{align*}
+					&A: ||\:00\;|\;01\;|\;10\;|\;11 \\
+					&B: ||\;10\;|\;11\;|\;00\;|\;01
+				\end{align*}\\
+			\textbf{b)}\\
+				- A sendet Paket \textbf{00-11}, aber das ACK 00 von B geht verloren. B hat sein Fenster
+				auf die	n\"achsten Pakete \textbf{00-11} verschoben. A sendet das alte Paket \textbf{00}, 
+				doch B denkt es sei das neue \textbf{00}.\\
+		\subsection{Durchsatz:}
+			\textbf{a)}
+				\begin{align*}			 
+					S &= \frac{1}{1+2a}(1-p)\\ 
+					&= \frac{1}{1+2(RD/L}(1-p)\\
+					&= \frac{1}{11}(1-p) = \frac{0,97}{11} = 8,8%
+				\end{align*}
+			\textbf{b)}
+				\begin{align*}
+				2a = 11 > W \Rightarrow S 	&= \frac{W(1-p)}{(1-p+Wp)(1+2ap)}\\
+											&= \frac{0,97 * 4}{(0.97+4*0.03)(1+0,97*10)}\\ 
+											&= 0,32 (VL 03_98, warning ongoing discussion)
+				\end{align*}
+		\subsection{CRC:}
+			\textbf{a)}		
+		\begin{align*}
+		    11100&0110000 : 10111 \\
+    		10111&			\\
+      		 1011&0110000	\\
+      		 1011&1			\\
+                 &1110000 	\\
+                 &10111		\\
+                 &\;\,101100	\\
+                 &\;\,10111	\\
+                 &\;\;\;\;\;\;\;\;\;10
+		\end{align*}
+		Ergebnis der "schriftlichen Division an die Nachricht anhaengen. (Pr\"ufdaten sind also \textbf{10}.\\\\
+			\textbf{b)}\\
+				Die Fehler sind nicht zusammenh\"angend aber ungerade und k\"onnen daher erkannt werden da
+				G den Faktor x+1 enthält. (Burstfehler k\"onnen auch nicht nicht geflippte Bits enthalten)
+		\subsection{TCP-Leistungsanalyse}
+			\textbf{siehe Uebung 5.1}
+	
+	\begin{small}
+		Diese Sammlung bassiert auf dem RK L\"osungspad des faui2k13 (\url{https://pad.stuve.fau.de/p/RK}) und enthält möglicherweise Fehler!
+	\end{small}			
+\end{document}
